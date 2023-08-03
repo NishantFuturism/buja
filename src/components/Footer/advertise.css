@@ -1,0 +1,1068 @@
+/*adibuja_advertise_css*/
+
+.lft_visi_sec .visi_nm {
+    font-family: Roboto;
+    font-size: 49px;
+    font-weight: bold;
+    line-height: 64px;
+    color: #000000;
+    padding-bottom: 40px;
+}
+
+.lft_visi_sec .visi_para {
+    font-family: Roboto;
+    font-size: 26px;
+    line-height: 39px;
+    color: #707070;
+    padding-bottom: 20px;
+    width: 78%;
+}
+
+.adv_logo .logo_lft {
+    width: 350px;
+    height: 60px;
+}
+
+.adv_header {
+    padding: 40px 0px 20px 14px;
+}
+
+.adv_header .adv_logo {
+    padding-left: 40px;
+}
+
+.adv_header .adv_rgt {
+    text-align: right;
+    padding-right: 40px;
+}
+
+.adv_body_prt {
+    padding: 0px 40px;
+}
+
+.bene_sec_rw .bene_tx {
+    font-family: Roboto;
+    font-size: 44px;
+    line-height: 58px;
+}
+
+.bene_sec_rw {
+    display: inline-flex;
+}
+
+.bene_sec_rw .rgt_arrow {
+    height: 84px;
+    margin-left: 20px;
+}
+
+.bene_inn_sec {
+    display: inline-flex;
+    padding: 60px 0px;
+}
+
+.bene_inn_col .bene_sm_tx {
+    font-family: roboto;
+    font-size: 30px;
+    line-height: 39px;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.bene_inn_col .banne_sm_img {
+    width: 138px;
+    margin: 0 auto;
+    display: block;
+}
+
+.adv_fourth_part {
+    background-color: #F4F4F4;
+}
+
+div#second_adv_ara {
+    background-color: #F4F4F4;
+    padding-top: 40px;
+}
+
+.upgrade_row .upgrade_ara {
+    display: inline-flex;
+}
+
+.upgrade_ara .upgrade_tx {
+    font-family: Roboto;
+    font-size: 44px;
+    line-height: 58px;
+    padding: 40px;
+}
+
+#second_adv_ara .upgrade_row {
+    text-align: center;
+}
+
+.rank_col .rank_tx {
+    font-family: Roboto;
+    text-align: center;
+    font-size: 22px;
+    line-height: 39px;
+    padding-bottom: 40px;
+}
+
+.rank_col .sliver_col {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.rank_col #gold_col {
+    -webkit-box-shadow: 2px 2px 5px 5px #e0e0e0;
+    -moz-box-shadow: 2px 2px 5px 5px #e0e0e0;
+    -ms-box-shadow: 2px 2px 5px 5px #e0e0e0;
+    box-shadow: 2px 2px 5px 5px #e0e0e0;
+    z-index: 1;
+    position: absolute;
+}
+
+.sliver_col .sli_p {
+    font-family: Roboto;
+    font-size: 20px;
+    padding: 6px 0px;
+    line-height: 32px;
+    border-bottom: 3px dotted #BCBCBC;
+}
+
+.up_sli_btn .sliver_btn {
+    background-image: linear-gradient(to top, #EDEDED, #D7D7D7, #C6C6C6);
+    border-radius: 12px;
+    border: 1px solid #EDEDED;
+    color: #000;
+    font-size: 22px;
+    font-family: Roboto;
+    line-height: 1;
+    width: 95%;
+    float: right;
+    margin-bottom: 30px;
+}
+
+div#sliver_lft_col {
+    padding-right: 0px;
+    left: 40px;
+}
+
+div#dimond_col {
+    padding-left: 0px;
+    right: 30px;
+}
+
+.up_sli_btn .gold_btn {
+    border: 1px solid #E5D388;
+    background-image: linear-gradient(to top, #E5D388, #D8C573, #C9B459);
+    color: #000;
+    font-family: Roboto;
+    font-size: 22px;
+    line-height: 1;
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+#second_adv_ara .sli_coll {
+    margin-top: 46px;
+    height: 608px;
+}
+
+#gold_col .gold_col_ara {
+    padding: 0px 40px;
+}
+
+#second_adv_ara .sli_col_ara {
+    padding: 0px 30px;
+}
+
+.add_sli_btn .btn {
+    border-radius: 36px;
+    background-color: #48C148;
+    border-color: #48C148;
+}
+
+.ranking_row .add_sli_btn {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.adv_third_part .metri_img_rw {
+    width: 100%;
+}
+
+.adv_fourth_part .test_tx {
+    font-family: roboto;
+    font-size: 44px;
+    text-align: center;
+    line-height: 58px;
+    padding-bottom: 30px;
+}
+
+.test_row .slideshow-container .mySlides_cust {
+    text-align: center;
+}
+
+.mySlides_cust .cust_slide {
+    display: inline-flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.cust_slide .author_para {
+    font-family: Roboto;
+    font-size: 26px;
+    width: 608px;
+    line-height: 36px;
+    padding-top: 20px;
+}
+
+.adv_fourth_part .test_row {
+    padding: 60px;
+}
+
+.dot-container .dot.active {
+    background-color: #3BC379;
+}
+
+.dot-container .dot {
+    background-color: #CCCCCC;
+}
+
+.up_sli_btn .dia_btn {
+    float: left;
+}
+
+.rank_col .sliver_col {
+    padding-bottom: 60px;
+}
+
+.adv_rgt .adv_head_tx {
+    font-family: Helvetica Neue;
+    font-size: 22px;
+    line-height: 42px;
+    color: #707070;
+    padding: 20px;
+}
+
+.rgt_visi_sec .ads_rgt_img {
+    width: 100%;
+}
+
+#dimond_col .sli_col_ara {
+    padding-left: 60px;
+}
+
+#sliver_lft_col .sli_col_ara {
+    padding-right: 60px;
+}
+
+/* Slides */
+.mySlides {
+    display: none;
+    padding: 80px;
+    text-align: center;
+}
+
+
+
+/* Position the "next button" to the right */
+.next {
+    position: absolute;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    /* background-color: rgba(0,0,0,0.8);
+  color: white; */
+    background-color: #fff;
+    color: #000;
+}
+
+/* The dot/bullet/indicator container */
+.dot-container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.active,
+.dot:hover {
+    /* background-color: #717171; */
+}
+
+.adv_fifth_part .slide_btm_p {
+    font-family: roboto;
+    font-size: 39px;
+    line-height: 52px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.adv_fifth_part {
+    padding: 60px;
+}
+
+.adv_fifth_part .adv_fift_tx {
+    font-size: 26px;
+    text-align: center;
+    padding-bottom: 30px;
+    line-height: 36px;
+}
+
+.call_us_btn .cal_btn {
+    background-color: #48C148;
+    border-radius: 36px;
+    color: #fff;
+    font-size: 22px;
+    font-family: helvitica new;
+    width: 12%;
+}
+
+.adv_fifth_part .call_us_btn {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.adv_fourth_part .cust_slide .test_lft {
+    width: auto;
+    height: 50px;
+    /* margin-right: 40px; remove */
+}
+
+.adv_fourth_part .cust_slide .test_rgt {
+    width: auto;
+    height: 50px;
+}
+
+.adv_metric_tx .metric_tx {
+    font-family: Roboto;
+    font-size: 44px;
+    line-height: 58px;
+    text-align: center;
+    padding-top: 60px;
+}
+
+.adv_third_part .adv_metric_tx {
+    display: inline-flex;
+}
+
+.adv_third_part {
+    text-align: center;
+    padding-top: 60px;
+}
+
+.adv_metric_tx .lft_up_arrow {
+    width: 130px;
+}
+
+.adv_cont_cust {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/*Media_query_started*/
+@media screen and (max-width: 1680px) {
+    .lft_visi_sec .visi_nm {
+        font-size: 40px;
+    }
+
+    .lft_visi_sec .visi_para {
+        font-size: 22px;
+        width: 76%;
+    }
+
+    .bene_sec_rw .bene_tx {
+        font-size: 40px;
+    }
+
+    .upgrade_ara .up_arr_img {
+        width: 96px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .lft_visi_sec .visi_nm {
+        font-size: 32px;
+        line-height: 42px;
+    }
+
+    .lft_visi_sec .visi_para {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .bene_sec_rw .bene_tx {
+        font-size: 36px;
+    }
+
+    .bene_inn_col .bene_sm_tx {
+        font-size: 28px;
+    }
+
+    .bene_inn_col .banne_sm_img {
+        width: 110px;
+    }
+
+    .upgrade_ara .upgrade_tx {
+        font-size: 32px;
+    }
+
+    .sliver_col .sli_p {
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    #second_adv_ara .sli_coll {
+        height: 540px;
+    }
+
+    .adv_fourth_part .test_tx {
+        font-size: 36px;
+    }
+
+    .cust_slide .author_para {
+        font-size: 22px;
+        width: 580px;
+    }
+
+    .adv_fourth_part .cust_slide .test_lft {
+        width: 56px;
+        height: 41px;
+    }
+
+    .adv_fourth_part .cust_slide .test_rgt {
+        width: 56px;
+        height: 41px;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .adv_metric_tx .lft_up_arrow {
+        width: 90px;
+    }
+
+    .adv_metric_tx .metric_tx {
+        font-size: 32px;
+        padding-top: 36px;
+    }
+
+    .adv_third_part .adv_metric_tx {
+        margin-top: 40px;
+    }
+
+    .adv_fifth_part .slide_btm_p {
+        font-size: 32px;
+    }
+
+    .adv_fifth_part .adv_fift_tx {
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    .call_us_btn .cal_btn {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .adv_logo .logo_lft {
+        width: 290px;
+        height: 50px;
+    }
+
+    .lft_visi_sec .visi_nm {
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    .lft_visi_sec .visi_para {
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .bene_sec_rw .bene_tx {
+        font-size: 30px;
+    }
+
+    .bene_inn_col .bene_sm_tx {
+        font-size: 22px;
+    }
+
+    .bene_inn_col .banne_sm_img {
+        width: 100px;
+    }
+
+    .upgrade_ara .up_arr_img {
+        width: 64px;
+        height: 78px;
+    }
+
+    .upgrade_ara .upgrade_tx {
+        padding: 16px 20px;
+    }
+
+    .sliver_col .sli_p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    #second_adv_ara .sli_coll {
+        height: 508px;
+    }
+
+    .up_sli_btn .sliver_btn {
+        font-size: 20px;
+    }
+
+    .adv_third_part .adv_metric_tx {
+        margin-top: 0px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .lft_visi_sec .visi_nm {
+        font-size: 26px;
+        line-height: 42px;
+    }
+
+    .lft_visi_sec .visi_para {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .bene_sec_rw .bene_tx {
+        font-size: 28px;
+    }
+
+    .adv_logo .logo_lft {
+        width: 260px;
+        height: 40px;
+    }
+
+    .adv_rgt .adv_head_tx {
+        font-size: 20px;
+        line-height: 28px;
+        padding: 10px 20px;
+    }
+
+    .rank_col .rank_tx {
+        font-size: 20px;
+    }
+
+    #gold_col .gold_col_ara {
+        padding: 0px 20px;
+    }
+
+    .up_sli_btn .gold_btn {
+        font-size: 20px;
+    }
+
+    #sliver_lft_col .sli_col_ara {
+        padding-right: 40px;
+    }
+
+    #dimond_col .sli_col_ara {
+        padding-left: 40px;
+    }
+
+    .sliver_col .sli_p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .adv_fourth_part .test_tx {
+        font-size: 32px;
+    }
+
+    .adv_fourth_part .cust_slide .test_rgt {
+        width: 46px;
+        height: 31px;
+    }
+
+    .adv_fourth_part .cust_slide .test_lft {
+        width: 46px;
+        height: 31px;
+    }
+
+    .cust_slide .author_para {
+        padding-top: 0px;
+    }
+
+    .adv_fifth_part .slide_btm_p {
+        font-size: 28px;
+    }
+
+    .adv_fifth_part .adv_fift_tx {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .call_us_btn .cal_btn {
+        width: 18%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .adv_header {
+        padding: 0px 20px 20px 20px;
+    }
+
+    .adv_logo .logo_lft {
+        width: 230px;
+    }
+
+    .adv_third_part {
+        padding-bottom: 60px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .lft_visi_sec .visi_nm {
+        font-size: 22px;
+        line-height: 32px;
+        padding-bottom: 20px;
+    }
+
+    .lft_visi_sec .visi_para {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .bene_inn_col .bene_sm_tx {
+        font-size: 18px;
+    }
+
+    .bene_inn_col .banne_sm_img {
+        width: 72px;
+    }
+
+    .rank_col .rank_tx {
+        font-size: 17px;
+        line-height: 22px;
+    }
+
+    .upgrade_ara .upgrade_tx {
+        font-size: 26px;
+    }
+
+    .up_sli_btn .gold_btn {
+        font-size: 18px;
+        line-height: 1;
+    }
+
+    .up_sli_btn .sliver_btn {
+        font-size: 18px;
+        line-height: 1;
+    }
+
+    #second_adv_ara .sli_coll {
+        height: 622px;
+    }
+
+    div#sliver_lft_col {
+        left: 16px;
+    }
+
+    div#dimond_col {
+        right: 6px;
+    }
+
+    #dimond_col .sli_col_ara {
+        padding-left: 20px;
+    }
+
+    #sliver_lft_col .sli_col_ara {
+        padding-right: 20px;
+    }
+
+    .up_sli_btn .sliver_btn {
+        line-height: 32px;
+    }
+
+    .up_sli_btn .gold_btn {
+        line-height: 32px;
+    }
+
+    .cust_slide .author_para {
+        font-size: 20px;
+        width: 436px;
+    }
+
+    .adv_fourth_part .cust_slide .test_lft {
+        /* margin-right: 20px; */
+    }
+
+    .adv_fourth_part .cust_slide .test_rgt {
+        margin-left: 20px;
+    }
+
+    .adv_fifth_part .slide_btm_p {
+        font-size: 24px;
+    }
+
+    .call_us_btn .cal_btn {
+        width: 22%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .bene_inn_col .bene_sm_tx {
+        font-size: 16px;
+    }
+
+    .bene_sec_rw .bene_tx {
+        font-size: 22px;
+    }
+
+    .bene_sec_rw .rgt_arrow {
+        height: 64px;
+    }
+
+    .adv_fifth_part .slide_btm_p {
+        font-size: 22px;
+    }
+
+    .adv_fifth_part .adv_fift_tx {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .call_us_btn .cal_btn {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    div#sliver_lft_col {
+        left: 0px;
+    }
+
+    #second_adv_ara .sli_coll {
+        height: auto;
+    }
+
+    .rank_col #gold_col {
+        position: initial;
+    }
+
+    .rank_col .rank_tx {
+        padding: 20px 0px;
+    }
+
+    .rank_col .sliver_col {
+        padding-bottom: 40px;
+    }
+
+    div#dimond_col {
+        right: 0px;
+        margin-top: 40px;
+        padding-left: 15px;
+    }
+
+    .upgrade_ara .upgrade_tx {
+        font-size: 24px;
+    }
+
+    #second_adv_ara .sli_coll {
+        margin-top: 0px;
+    }
+
+    #second_adv_ara .sli_coll {
+        margin-bottom: 40px;
+    }
+
+    .rank_col .rank_tx {
+        font-size: 26px;
+    }
+
+    .adv_header .adv_logo {
+        text-align: center;
+    }
+
+    .adv_header .adv_rgt {
+        text-align: center;
+        padding-right: 0px;
+        margin-top: 30px;
+    }
+
+    .adv_header {
+        padding: 0px 0px 20px 0px;
+    }
+
+    .cust_slide .author_para {
+        font-size: 18px;
+        line-height: 26px;
+        width: auto;
+    }
+
+    .cust_slide .author_img_sec {
+        width: 20%;
+        max-width: 20%;
+    }
+
+    .adv_metric_tx .metric_tx {
+        padding-top: 0px;
+    }
+
+    .adv_metric_tx .lft_up_arrow {
+        width: 56px;
+        margin-right: 20px;
+    }
+
+    .adv_metric_tx .metric_tx {
+        font-size: 26px;
+    }
+
+    .adv_fifth_part .slide_btm_p {
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    .adv_body_prt {
+        margin-top: 20px;
+    }
+
+    .bene_sec_rw {
+        margin-top: 40px;
+    }
+
+    .adv_body_prt {
+        padding: 0px 15px;
+    }
+
+    .lft_visi_sec .visi_nm {
+        font-size: 26px;
+        line-height: 40px;
+    }
+
+    .lft_visi_sec .visi_para {
+        font-size: 16px;
+    }
+
+    .bene_inn_sec {
+        padding: 20px 0px;
+    }
+
+    .bene_inn_col .bene_sm_tx {
+        line-height: 22px;
+    }
+
+    .up_sli_btn .sliver_btn {
+        width: 30%;
+        float: none;
+        margin: 0 auto;
+        display: block;
+    }
+
+    #sliver_lft_col .sli_col_ara {
+        padding: 20px;
+    }
+
+    .sliver_col .sli_p {
+        font-size: 16px;
+        padding: 10px 0px;
+    }
+
+    .ranking_row .add_sli_btn {
+        margin-top: 40px;
+    }
+
+    .sli_coll .up_sli_btn {
+        margin-top: 20px;
+    }
+
+    .up_sli_btn .gold_btn {
+        display: block;
+        width: 30%;
+        margin: 0 auto;
+    }
+
+    .adv_header .adv_logo {
+        padding-left: 0px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .upgrade_ara .upgrade_tx {
+        font-size: 22px;
+    }
+
+    .rank_col .rank_tx {
+        font-size: 22px;
+    }
+
+    .adv_fourth_part .test_tx {
+        font-size: 28px;
+    }
+
+    .cust_slide .author_para {
+        font-size: 16px;
+        padding: 0px 20px;
+    }
+
+    .adv_fifth_part {
+        padding: 60px 40px;
+    }
+
+    .adv_fourth_part .cust_slide .test_lft {
+        width: 38px;
+        height: 26px;
+    }
+
+    .adv_fourth_part .cust_slide .test_rgt {
+        width: 38px;
+        height: 26px;
+    }
+
+    .adv_fifth_part .slide_btm_p {
+        font-size: 20px;
+    }
+
+    .call_us_btn .cal_btn {
+        width: 26%;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .lft_visi_sec .visi_nm {
+        font-size: 22px;
+        line-height: 32px;
+    }
+
+    .upgrade_ara .upgrade_tx {
+        font-size: 22px;
+        line-height: 32px;
+        padding: 16px 13px;
+    }
+
+    .upgrade_ara .up_arr_img {
+        width: 56px;
+        height: 66px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .adv_fourth_part .test_row {
+        padding: 60px 30px;
+    }
+
+    .cust_slide .author_img_sec {
+        width: 18%;
+        max-width: 100%;
+    }
+
+    .cust_slide .author_para {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .lft_visi_sec .visi_para {
+        font-size: 14px;
+    }
+
+    .call_us_btn .cal_btn {
+        width: 32%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .upgrade_ara .upgrade_tx {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .rank_col .rank_tx {
+        font-size: 20px;
+    }
+
+    .up_sli_btn .sliver_btn,
+    .up_sli_btn .gold_btn {
+        width: 44%;
+    }
+
+    .cust_slide .author_para {
+        padding: 0px 6px;
+    }
+
+    .adv_fourth_part .test_row {
+        padding: 60px 10px;
+    }
+
+    .adv_fourth_part .cust_slide .test_rgt {
+        width: 28px;
+        height: 22px;
+    }
+
+    .adv_fourth_part .cust_slide .test_lft {
+        width: 28px;
+        height: 22px;
+    }
+
+    .call_us_btn .cal_btn {
+        width: 48%;
+    }
+
+    .adv_fifth_part .slide_btm_p {
+        font-size: 18px;
+    }
+
+    .adv_fifth_part .adv_fift_tx {
+        font-size: 16px;
+    }
+
+    .adv_metric_tx .metric_tx {
+        font-size: 22px;
+    }
+
+    .sliver_col .sli_p {
+        font-size: 14px;
+    }
+
+    .bene_inn_sec {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .cust_slide .author_para {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .lft_visi_sec .visi_nm {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .cust_slide .author_para {
+        line-height: 18px;
+    }
+
+    .upgrade_ara .upgrade_tx {
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .bene_sec_rw .bene_tx {
+        font-size: 20px;
+    }
+}

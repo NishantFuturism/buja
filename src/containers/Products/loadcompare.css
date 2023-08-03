@@ -1,0 +1,31 @@
+table#comparefix select {
+  float: none !important;
+}
+
+/* d-flex justify-content-center */
+#comparefix .compareproimg {
+  padding: 25px 15px !important;
+}
+
+#comparefix .comparethead {
+  padding: 13px !important;
+}
+
+#comparefix .comparenameall {
+  padding: 12px !important;
+}
+
+#comparefix .price {
+  padding: 13px !important;
+}
+
+#comparefix .compaction {
+  padding: 21px 15px !important;
+}
+
+#comparefix .compare-style tbody td span {
+  color: #444 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  padding-left: 5px !important;
+}

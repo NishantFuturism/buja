@@ -1,0 +1,103 @@
+#txtLoginOTP {
+  padding-left: 15px;
+  letter-spacing: 42px;
+  border: 0;
+  background-image: linear-gradient(to left, black 70%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 50px 1px;
+  background-repeat: repeat-x;
+  background-position-x: 35px;
+  width: 220px;
+  min-width: 220px;
+  border-bottom: 1px dashed #fff;
+}
+
+#divOuter {
+  width: 190px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+#divInner {
+  left: 0;
+  position: sticky;
+}
+
+#divOTPsection #btnRegisterWithOTP#btnRegisterWithOTP {
+  margin-top: 3.5rem !important;
+}
+
+.btn-secondary:hover {
+  /* background-color: #ff7060;
+  color: #111;
+  border-color: #ff7060; */
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.btn:focus,
+.btn:hover {
+  text-decoration: none;
+}
+
+#divOuter #resendOtpTimerNewdiv {
+  width: 100%;
+  margin: 10px auto;
+  display: block;
+  position: absolute;
+  text-align: center;
+  right: 0;
+}
+
+.btn-secondary {
+  background: #fff none repeat scroll 0 0;
+  line-height: 35px;
+  padding: 0 0.7rem;
+  text-transform: capitalize;
+  color: #000;
+}
+
+.login-form {
+  padding: 50px 20px 50px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  -webkit-box-shadow: 2px 2px 8px 0 rgb(0 0 0 / 20%);
+  box-shadow: 2px 2px 8px 0 rgb(0 0 0 / 20%);
+}
+
+.btntest {
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.set-password-form {
+  padding: 50px 20px 50px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  -webkit-box-shadow: 2px 2px 8px 0 rgb(0 0 0 / 20%);
+  box-shadow: 2px 2px 8px 0 rgb(0 0 0 / 20%);
+}
+
+/*#loginUserWithOTP { margin-left: 35%; }*/
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .input-group>.form-control-sm-50 {
+    width: 50% !important;
+  }
+
+  .input-group>.form-control-sm-25 {
+    width: 25% !important;
+  }
+
+  #loginUserWithOTP {
+    margin-left: 25% !important;
+  }
+
+}
+
+@media screen and (max-width: 1680px) {
+  .login-form .btn-secondary {
+    line-height: 40px;
+  }
+}

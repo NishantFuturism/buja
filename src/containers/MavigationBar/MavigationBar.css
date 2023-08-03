@@ -1,0 +1,15 @@
+/*  */
+.ui-menu .ui-menu-item {
+  padding: 8px 1em 11px 0.4em !important;
+}
+
+.ui-menu li:hover {
+  background-color: rgb(0, 127, 255);
+}
+
+#accountNameId {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  /* min-width: 90px; */
+}

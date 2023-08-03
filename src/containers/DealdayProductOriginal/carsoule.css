@@ -1,0 +1,113 @@
+.lnr {
+  font-family: "linearicons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: bold;
+  font-variant: normal;
+  text-decoration: none;
+  text-transform: none;
+  font-size: 22px;
+}
+
+
+.lnr {
+  font-family: "linearicons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: bold;
+  font-variant: normal;
+  text-decoration: none;
+  text-transform: none;
+  font-size: 22px;
+}
+
+.nextBtn {
+  padding-right: 90px;
+}
+
+.round1 {
+  position: absolute !important;
+  background: rgba(0, 0, 0, 0.7);
+  width: 20px;
+  height: 50px;
+  opacity: 1;
+  line-height: 0.5;
+  cursor: pointer;
+  top: 50% !important;
+  margin-right: -1% !important;
+}
+
+.round1:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.roundpre {
+  position: absolute !important;
+  background: rgba(0, 0, 0, 0.7);
+  width: 20px;
+  height: 50px;
+  opacity: 1;
+  line-height: 43px;
+  cursor: pointer;
+  top: 40px;
+  margin-right: 70px;
+}
+
+.round {
+  /* border-radius: 100% !important; */
+  position: absolute !important;
+  background: rgba(0, 0, 0, 0.7);
+  width: 20px;
+  height: 50px;
+  opacity: 1;
+  line-height: 43px;
+  cursor: pointer;
+  top: 200px;
+}
+
+
+.previous {
+  font-size: 40px;
+  color: white;
+  left: 0px;
+  display: block;
+  text-align: center;
+  /* margin-left: 10%; */
+}
+
+.lnr-chevron-left {
+  display: inline;
+}
+
+.round,
+.round1 {
+  background: #fff !important;
+  border: 1px solid #000 !important;
+  border-radius: 100% !important;
+  position: absolute !important;
+  /* background: #c5c5c5 !important; */
+  width: 50px !important;
+  height: 50px;
+  opacity: 1;
+  line-height: 43px;
+  cursor: pointer;
+  top: 200px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  /* border-radius: 100%; */
+  transform: scale(.7);
+}
+
+.next.round,
+.next.round1 {
+  right: 0px !important;
+}
+
+.react-multiple-carousel__arrow--right {
+  display: none;
+}
+
+.react-multiple-carousel__arrow--left {
+  display: none !important;
+}

@@ -1,0 +1,18 @@
+.custom-checkbox,
+.custom-radio {
+  position: relative;
+}
+
+
+.custom-checkbox input[type=checkbox],
+.custom-checkbox .checkmark,
+.custom-checkbox .checkmark::after,
+.custom-radio input[type=radio] {
+  position: absolute;
+}
+
+.custom-checkbox label {
+  padding-left: 30px;
+  text-transform: capitalize;
+  cursor: pointer;
+}

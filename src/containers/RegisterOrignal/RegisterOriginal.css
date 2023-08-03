@@ -1,0 +1,29 @@
+.google-login-div {
+  width: 33%;
+  margin: 18px auto;
+}
+
+.google-login-div iframe {
+  margin: 0 auto !important;
+}
+
+@media screen and (max-width: 768px) {
+  .google-login-div {
+    width: 45%;
+    margin: 18px auto;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .google-login-div {
+    width: 40%;
+    margin: 18px auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .google-login-div {
+    width: 100%;
+    margin: 18px auto;
+  }
+}

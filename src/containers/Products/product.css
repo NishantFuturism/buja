@@ -1,0 +1,11 @@
+.pimg{
+    position: relative;
+    width: 200px;
+}
+.tableTd{
+    text-align:"center" ;
+    position:relative;
+}
+#comparefix .tdtitle{
+    width: 40px;
+}

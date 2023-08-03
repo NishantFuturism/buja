@@ -1,0 +1,50 @@
+.catboxcate {
+  padding-top: 15px;
+  padding-bottom: 0;
+  text-align: center;
+}
+
+.catboxcate a {
+  color: #111;
+  /* font-size: 1.1em; */
+  display: block;
+}
+
+.catboxcate>div {
+  display: flex;
+}
+
+.catboxcate div>div {
+  border: 1px #ddd8d8 solid;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+
+.catboxcate div>div span {
+  display: block;
+  line-height: 1.4;
+}
+
+.catboxcate div>div:hover {
+  border-color: #ff7060;
+}
+
+@media (min-width: 0) and (max-width: 767px) {
+  .catboxcate div>div {
+    margin: 0 -10px 10px -10px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .catboxcate>div {
+    display: inline-flex;
+  }
+
+  .catboxcate>div {
+    width: 20% !important;
+    max-width: 20% !important;
+    flex: 20% !important;
+  }
+}
