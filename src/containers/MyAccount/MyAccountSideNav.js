@@ -2,16 +2,19 @@
 import React from 'react';
 import Link from 'next/link';
 //import history from '../../utils/history';
+import { useRouter } from 'next/router';
 // const [change, setChange] = useState('false')
 // const [active, setActive] = useState('false')
 function MyAccountSideNav() {
+  const router = useRouter();
+
   function renderLogout() {
     // localStorage.removeItem('CustGUID')
     // localStorage.removeItem('UserFirstName')
     // localStorage.removeItem('CartGUID')
     // localStorage.removeItem('CartGUID')
     localStorage.clear()
-    history.push('/')
+    router.push('/')
   }
   // const handlechange = () => {
   //   setChange(!active)
@@ -24,7 +27,7 @@ function MyAccountSideNav() {
           <li> <Link class='nav-link' href="/account/myorders">&nbsp;<span className="lnr lnr-cart" aria-hidden="true"></span>&nbsp;My Order
           </Link></li>
           <li> <Link class='nav-link' href="/account/reorder">&nbsp;<span className="lnr lnr-history" aria-hidden="true"></span>&nbsp;Reorder</Link></li>
-          <li> <Link class='nav-link' href="/Wishlist">&nbsp;<span className="lnr lnr-heart" aria-hidden="true"></span>&nbsp;My Wishlist</Link>
+          <li> <Link class='nav-link' href="/wishlist">&nbsp;<span className="lnr lnr-heart" aria-hidden="true"></span>&nbsp;My Wishlist</Link>
           </li>
           <li> <Link class='nav-link' href="/account/transactions">&nbsp;<span className="lnr lnr-pushpin" aria-hidden="true"></span>&nbsp;Wallet Transactions</Link></li>
           <li> <Link class='nav-link' href="/account/savedcartlist">&nbsp;<span className="lnr lnr-pushpin" aria-hidden="true"></span>&nbsp;Saved Cart</Link></li>

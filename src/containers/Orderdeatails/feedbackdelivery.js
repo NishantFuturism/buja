@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useInjectReducer } from 'utils/injectReducer';
-import { useInjectSaga } from 'utils/injectSaga';
+import { useInjectReducer } from '@/utils/injectReducer';
+import { useInjectSaga } from '@/utils/injectSaga';
 import { useDispatch, useSelector } from 'react-redux';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

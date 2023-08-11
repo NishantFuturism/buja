@@ -28,7 +28,7 @@ import { ConstantsValues } from './homeServices';
 export const httpRequest = async (url, method, body,) => {
   const dataBody = JSON.stringify(body)
   //const token = localStorage.getItem('generatedtoken');
-  const token = "BMYDRql-QSazfTBXzjoam7hzqhDK7RiSuO47vN9t9B6aZlHzZhHGzSuvwQRq5vVjweWcDr8ETe_zvBrgD15ATR2NCgfHtwz66EMTG4qqqsGGKOT1k0hi08OuC91T8emw-ibERwFAa1Gz2nGPXvaK28ZRAciZyE7OWc_0rjEu7ryc3OC-GoELBk3jRvIsDuE1EWXmkq-Pd0lJJMjt8yDWj2LQ5_xqPF1t7stm0QRKYRXzeLGqcgwkx_UdbF49lQ9ZxdvD40gW6d6c1MdOYRdMSlGCMTSwsTJH2W6cymzEH8vy2KBMfLCAZnIO80QeIYOVy2jrU00BaYB97CV3XhNZ3BfTtlzRcJ1rQhkwHEONpPU";
+  const token = "eWlluoVfoVZJ5aZ93V5a9ZLej3jhtEVwHptlisDegR3f2AVuZ-x31LqLFuWMzlQn9wKshI-IMJSs_53kiBPW76WUujy8yMPEqueBj0gpd0oIRKwztRQnFDtZjzMrPKxeMhmbWnESWqBzTo_hi_QqHzcpu5FYzjKapqFURApMkt8lwsELz9146PmFObIPu0jJCFSCaRefiht93Ru5dytUSZwwoSi3dlnaUiUTxcWOGwFxIFNmt-eMaOs45Opl5W52SNTY8xAe61d7yiBzJTeI4xknyTVOP6XrSlCvyw1K7eAwIrNm9YpebtBcZZuM58KS0IDXsXBbc9RusYRmTWfSBJS1Vd_vPL_h7havNcDKGxA";
   const headers = {
     accept: 'application/json',
     'Content-Type': 'application/json',

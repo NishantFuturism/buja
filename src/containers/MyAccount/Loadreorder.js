@@ -3,12 +3,14 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 ////import history from '../../utils/history';
 import AddToCart from '../AddToCart';
 // import OrderdetailAPI from '../MainPage/api/orderdetail';
 // import ReorderAPI from '../MainPage/api/Reorder';
 import mycartAPI from '../MainPage/api/mycartAPI';
+import Image from 'next/image'
+
 export default function Loadreorder(props) {
   const [Seleced, setSeleced] = useState('');
   const [filtered, setFiltered] = useState([]);
@@ -77,12 +79,16 @@ export default function Loadreorder(props) {
       {/* {(reOrderlist || []).map(data => */}
       <tr className="pr-block">
         <td>
-          <Link onClick={() => productdetail(props.data.PageUrl)} >
-            <img src={props.data.ListingImage} height="50" width="50" className="js-lazy-img" />
+          <Link href={"#"} onClick={() => productdetail(props.data.PageUrl)} >
+            {/* <img src={props.data.ListingImage} height="50" width="50" className="js-lazy-img" /> */}
+            {console.log("SDGGGGWERERR",props.data.ListingImage)}
+            <Image src={props.data.ListingImage} width="50" height="50"  />
+
+
           </Link>
         </td>
         <td className="text-left reordertext" id='reoderproductname'>
-          <p><strong><Link onClick={() => productdetail(props.data.PageUrl)}> {props.data.SkuCode}</Link> </strong></p>
+          <p><strong><Link href={"#"}  onClick={() => productdetail(props.data.PageUrl)}> {props.data.SkuCode}</Link> </strong></p>
         </td>
         <td style={{ textAlign: 'left' }}>
           {dateConverter(props.data.CreatedOn)}

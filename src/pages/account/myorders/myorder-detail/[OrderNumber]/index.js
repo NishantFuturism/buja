@@ -9,32 +9,31 @@
 // import { Footer } from 'antd/lib/layout/layout';
 import React, { useEffect, useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import { useInjectReducer } from 'utils/injectReducer';
+import { useInjectReducer } from '@/utils/injectReducer';
 // import { useInjectSaga } from 'utils/injectSaga';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Header from '../../components/Header';
-import SubNavigation from '../../components/SubNavigation';
+import Header from '../../../../../components/Header';
+import SubNavigation from '../../../../../components/SubNavigation';
 // import history from '../../utils/history';
-import CheckoutAPI from '../MainPage/api/checkout';
-import OrderdetailAPI from '../MainPage/api/orderdetail';
-import { ordercancelpopup, deliverypopup, orderpopup } from './actions';
-import Cancelorder from './cancelorder';
+import CheckoutAPI from '../../../../../containers/MainPage/api/checkout';
+import OrderdetailAPI from '../../../../../containers/MainPage/api/orderdetail';
+import { ordercancelpopup, deliverypopup, orderpopup } from '../../../../../containers/Orderdeatails/actions';
+import Cancelorder from '../../../../../containers/Orderdeatails/cancelorder';
 // import Returnorder from './Returnorder'
-import FeedbackDelivery from './feedbackdelivery';
-import DetailDelivery from './detailorder';
-import reducer from './reducer';
+import FeedbackDelivery from '../../../../../containers/Orderdeatails/feedbackdelivery';
+import DetailDelivery from '../../../../../containers/Orderdeatails/detailorder';
+import reducer from '../../../../../containers/MyAccount/reducer';
 // import saga from './saga';
-import Footer from '../../components/Footer';
-import makeSelectOrderdeatails from './selectors';
-import history from '../../utils/history';
+import Footer from '../../../../../components/Footer';
+import makeSelectOrderdeatails from '../../../../../containers/Orderdeatails/selectors';
+import { useRouter } from 'next/router';
+// import history from '../../utils/history';
 // import Success from '../../components/ShowAlert/success';
 // import { Modal } from 'react-bootstrap'
-import Image from 'next/image';
-
 export function Orderdeatails() {
   console.log('i called here')
   useInjectReducer({ key: 'orderdeatails', reducer });
@@ -53,6 +52,8 @@ export function Orderdeatails() {
   // const [paymentmethod, setpaymentmethod] = useState('')
   // const [cancelbutton, setcancelbutton] = useState(true)
   const OrderReducer = useSelector(state => state.orderdeatails)
+  const router = useRouter();
+
   // const trackordeReducer = useSelector(state => state.trackorder)
   // const [activesteps, setactivestep] = useState(0)
   console.log("orderreducer..", OrderReducer)
@@ -85,6 +86,7 @@ export function Orderdeatails() {
   //     });
   // }
   useEffect(() => {
+    if (typeof window !== 'undefined' && window.localStorage) {
     OrderdetailAPI.getmyorder(window.atob(localStorage.getItem('OrderNumber')))
       .then(response => {
         setOrderItemDetails(response)
@@ -119,10 +121,12 @@ export function Orderdeatails() {
       .catch(error => {
         console.log('error:::', error);
       });
+    }
   }, [])
   useEffect(() => {
     console.log('calledincancelorder')
     // setIsOrderCancelled(false)
+    if (typeof window !== 'undefined' && window.localStorage) {
     OrderdetailAPI.getmyorder(window.atob(localStorage.getItem('OrderNumber')))
       .then(response => {
         setOrderItemDetails(response)
@@ -157,6 +161,7 @@ export function Orderdeatails() {
       .catch(error => {
         console.log('error:::', error);
       });
+    }
   }, [isOrderCancelled])
   // useEffect(() => {
   //   (OrderItemDetails || []).forEach(data =>
@@ -235,12 +240,12 @@ export function Orderdeatails() {
   //   // dispatch(getitems(itemobject))
   // }
   const productdetail = (PageUrl) => {
-    history.push(`/product/${PageUrl}`, { skuUrl: PageUrl })
+    router.push(`/product/${PageUrl}`, { skuUrl: PageUrl })
     localStorage.setItem('PageUrl', window.btoa(PageUrl))
   }
   const trackpackage = () => {
     const ordernumber = window.atob(localStorage.getItem('OrderNumber'))
-    history.push(`/account/myorders/myorder-detail/${ordernumber}/trackorder`)
+    router.push(`/account/myorders/myorder-detail/${ordernumber}/trackorder`)
   }
   const ordercancel = () => {
     // setClickcancelorder(true)
@@ -280,7 +285,7 @@ export function Orderdeatails() {
     dispatch(orderpopup(true))
     setCloseorder(true)
   }
-  const orders = window.atob(localStorage.getItem('Status'))
+  const orders = typeof window !== 'undefined' && window.localStorage ?  window.atob(localStorage.getItem('Status')) : '';
   console.log("orderstatus..", orders)
   // const closemsg = () => {
   //   setOrderstatus(false)
@@ -289,14 +294,14 @@ export function Orderdeatails() {
     console.log(`heycalledhere${orderNum}`)
     localStorage.setItem('returnAll', "yes")
     // localStorage.setItem('orderNum', orderNum)
-    history.push(`/account/myorders/return-order/${window.atob(localStorage.getItem('OrderNumber'))}`)
+    router.push(`/account/myorders/return-order/${window.atob(localStorage.getItem('OrderNumber'))}`)
   }
   function returnOrderItemHandler(orderItemDet) {// console.log('getting called')
     if (localStorage.getItem('returnAll') && localStorage.getItem('returnAll') !== "") {
       localStorage.removeItem("returnAll");
     }
     localStorage.setItem('orderItemDetId', orderItemDet)
-    history.push(`/account/myorders/return-order/${window.atob(localStorage.getItem('OrderNumber'))}`)
+    router.push(`/account/myorders/return-order/${window.atob(localStorage.getItem('OrderNumber'))}`)
   }
   return (
     <>
@@ -500,12 +505,12 @@ export function Orderdeatails() {
                           </div>
                           {/* <Trackorder /> */}
                           <div className="OrderItemListHeader d-flex align-items-center justify-content-end my-2" style={{ marginLeft: '0px' }}>
-                            {(window.atob(localStorage.getItem('OrderStatus')) === 'Awaiting Fullfillment') || (window.atob(localStorage.getItem('OrderStatus')) === 'Awaiting Shipment') || (window.atob(localStorage.getItem('OrderStatus')) === "Awaiting Payment") ?
+                          {typeof window !== 'undefined' && window.localStorage ? (window.atob(localStorage.getItem('OrderStatus')) === 'Awaiting Fullfillment') || (window.atob(localStorage.getItem('OrderStatus')) === 'Awaiting Shipment') || (window.atob(localStorage.getItem('OrderStatus')) === "Awaiting Payment") ?
                               <button type="button" id='submitCancelbtn'
                                 // disabled={(window.atob(localStorage.getItem('OrderStatus')) === 'Cancelled')}
                                 onClick={ordercancel}
                                 className="btn btn-danger submitCancelAll mb-10">Cancel Order</button> :
-                              null}
+                              null : null }
                             {/* {(window.atob(localStorage.getItem('OrderStatus')) === 'Completed') ?
                               <button type="button" data-reford-orderguid="25eee908-5a38-4a83-b3b1-3c7369fb4430" data-reford-ordernumber="OC8909" className="btn btn-success submitReturnAll">Return Order</button> : null} */}
                             {
@@ -539,8 +544,7 @@ export function Orderdeatails() {
                                           <td>
                                             <input type="hidden" id="PaymentReferenceNumber" />
                                             <a href onClick={() => productdetail(dataitem.SkuLink)} style={{ cursor: 'pointer' }}>
-                                              {/* <img src={dataitem.ListingImage} data-width="150" data-height="150" width="150" height="150" className="img-responsive js-lazy-img" alt="Cucumber Green/Kheera Hara/Kakdi Hari" title="" /> */}
-                                              <Image src={dataitem.ListingImage} width="150" height="150" alt="Cucumber Green/Kheera Hara/Kakdi Hari" />
+                                              <img src={dataitem.ListingImage} data-width="150" data-height="150" width="150" height="150" className="img-responsive js-lazy-img" alt="Cucumber Green/Kheera Hara/Kakdi Hari" title="" />
                                             </a>
                                           </td>
                                           <td className="textalignleft orderProductname" onClick={() => productdetail(dataitem.SkuLink)}>
@@ -620,7 +624,7 @@ export function Orderdeatails() {
                           </div>
                         </div>
                       </div>
-                      <div className="cart-button-wrapper d-flex justify-content-between mt-4" style={{ paddingBottom: '20px' }}> <Link to="/account/myorders" className="btn btn-secondary order-btn">← Back to My Order </Link> <Link to="/" className="btn btn-secondary order-btn"> Go to Shop </Link> </div>
+                      <div className="cart-button-wrapper d-flex justify-content-between mt-4" style={{ paddingBottom: '20px' }}> <Link href="/account/myorders" className="btn btn-secondary order-btn">← Back to My Order </Link> <Link href="/" className="btn btn-secondary order-btn"> Go to Shop </Link> </div>
                     </div>
                   </div>
                 </div>

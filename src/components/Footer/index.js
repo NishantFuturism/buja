@@ -112,7 +112,12 @@ function Footer() {
     console.log("footer res", pageurl, patrentcaturl);
     setPLPCat(pageurl)
     setPLPparenturl(patrentcaturl)
-    return router.push(`/${pageurl}`, { isURLChange: pageurl })
+    //  router.push(`/${pageurl}`, { isURLChange: pageurl })
+    return router.push(
+      {
+        pathname: `/${pageurl}`, // not router.asPath
+        isURLChange: pageurl,
+      })
   }
   useEffect(() => {
     if (flag === true) {
@@ -244,7 +249,7 @@ function Footer() {
                   {itm.DisplayName} :
                 </span>
                 {itm.SubSubMenus.map(subItm => (
-                  <Link href="#" onClick={() => productlistpage(subItm.PageUrl, itm.PageUrl)} className="flinks">
+                  <Link href="" onClick={() => productlistpage(subItm.PageUrl, itm.PageUrl)} className="flinks">
                     {subItm.DisplayName}
                     {console.log("displayname", `${subItm.DisplayName}`)}
                   </Link>

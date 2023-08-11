@@ -9,21 +9,22 @@ import Link from 'next/link';
 import { toast, ToastContainer } from 'react-toastify';
 import { useInjectReducer } from '@/utils/injectReducer';
 import { useInjectSaga } from '@/utils/injectSaga';
-import Footer from '../../components/Footer';
-import Success from '../../components/ShowAlert/success';
-import Header from '../../components/Header';
-import SubNavigation from '../../components/SubNavigation';
-import SaveCartAPI from '../MainPage/api/savecart';
-import { loadsavecheckoutpopup, getDeleteSkuid, DeleteSkuidflag } from './actions';
-import MyAccountSideNav from './MyAccountSideNav';
+import Footer from '../../../components/Footer';
+import Success from '../../../components/ShowAlert/success';
+import Header from '../../../components/Header';
+import SubNavigation from '../../../components/SubNavigation';
+import SaveCartAPI from '../../../containers/MainPage/api/savecart';
+import { loadsavecheckoutpopup, getDeleteSkuid, DeleteSkuidflag } from '../../../containers/MyAccount/actions';
+import MyAccountSideNav from '../../../containers/MyAccount/MyAccountSideNav';
 //import history from '../../utils/history';
 import { useRouter } from 'next/router';
 
-import reducer from './reducer';
-import saga from './saga';
-import Savecartcheckoutmodel from './savecartcheckoutmodel';
-import DeletePopUp from '../../components/ShowAlert/deletepopup';
+import reducer from '../../../containers/MyAccount/reducer';
+import saga from '../../../containers/MyAccount/saga';
+import Savecartcheckoutmodel from '../../../containers/MyAccount/savecartcheckoutmodel';
+import DeletePopUp from '../../../components/ShowAlert/deletepopup';
 import 'react-toastify/dist/ReactToastify.css';
+import Image from 'next/image';
 // import logoanimation from '../../images/adibuja-logo-animation.gif'
 export function SavedCartListitem(props) {
   useInjectReducer({ key: 'myAccount', reducer });
@@ -34,8 +35,6 @@ export function SavedCartListitem(props) {
   const [isdeletepop, setIsDeletepop] = useState(false)
   const [sortname, setsortName] = useState(false)
   const [Sortdata, setSortdata] = useState([])
-  const router = useRouter();
-
   const myaccountReducer = useSelector(state => state.myAccount);
   // const [showmsg] = useState([])
   // const [listname, setlistname] = useState('')
@@ -44,9 +43,13 @@ export function SavedCartListitem(props) {
   //     setlistname(props.location.state.listname)
   //   }
   // })
+  const router = useRouter();
+
   const dispatch = useDispatch()
   useEffect(() => {
+    if (typeof window !== 'undefined' && window.localStorage) {
     fetchlist()
+    }
   }, [])
   function fetchlist() {
     if (props !== undefined) {
@@ -93,12 +96,12 @@ export function SavedCartListitem(props) {
   }
   const productdetail = (PageUrl) => {
     // router.push(`/product/${PageUrl}`, { skuUrl: PageUrl })
+    localStorage.setItem('PageUrl', window.btoa(PageUrl))
     router.push(
       {
         pathname: `/product/${PageUrl}`, // not router.asPath
         skuUrl: PageUrl,
       })
-    localStorage.setItem('PageUrl', window.btoa(PageUrl))
   }
   const numbers = savecartlistitem.map((data) =>
     data.IsDeliveryAvailableToPinCode === true && data.SPPrice !== 0 ? data.Total : null
@@ -223,7 +226,7 @@ export function SavedCartListitem(props) {
                           <h3>Saved Cart</h3>
                           <div className="col-12 col-sm-12 col-md-12 col-lg-12 p-0">
                             <div className="table-responsive">
-                            <table id="tblSavedCart" className="table">
+                              <table id="tblSavedCart" className="table">
                                 <thead>
                                   <tr style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
                                     <th width="150">Image</th>
@@ -247,7 +250,8 @@ export function SavedCartListitem(props) {
                                       <td colSpan={7}>
                                         <div className='row'>
                                           <div className='col-lg-12 text-center mt-25 mb-25' >
-                                            <img src={logoanimation} alt='' style={{ justifySelf: 'center', width: '80px', height: '80px' }} />
+                                            {/* <img src={logoanimation} alt='' style={{ justifySelf: 'center', width: '80px', height: '80px' }} /> */}
+                                            <Image src={"/images/adibuja-logo-animation.gif"} width="80" height="80" alt='' objectPosition={'center'} />
                                             {/* <i
                                               style={{ justifySelf: 'center' }}
                                               className="fa fa-spin fa-spinner fa-4x"></i> */}
@@ -262,7 +266,7 @@ export function SavedCartListitem(props) {
                                       <tr style={{ whiteSpace: 'nowrap', overflow: 'hidden' }} className={data.IsDeliveryAvailableToPinCode ? "pr-block item " : "pr-block item  delivery-not-available "}>
                                         {data.IsDeliveryAvailableToPinCode ?
                                           <td>
-                                            <Link onClick={() => productdetail(data.PageUrl)}>
+                                            <Link href={"#"} onClick={() => productdetail(data.PageUrl)}>
                                               <img referrerPolicy='no-referrer' src={data.ListingImage} className="js-lazy-img" height="150" width="150" alt={data.DisplayName} />
                                             </Link>
                                           </td>
@@ -271,7 +275,7 @@ export function SavedCartListitem(props) {
                                             <img referrerPolicy='no-referrer' src={data.ListingImage} className="js-lazy-img" height="150" width="150" alt={data.DisplayName} />
                                           </td>}
                                         {data.IsDeliveryAvailableToPinCode ?
-                                          <td style={{ whiteSpace: 'normal' }}><Link onClick={() => productdetail(data.PageUrl)} >{data.DisplayName} </Link></td> :
+                                          <td style={{ whiteSpace: 'normal' }}><Link href={"#"} onClick={() => productdetail(data.PageUrl)} >{data.DisplayName} </Link></td> :
                                           <td style={{ color: '#007bff' }}>
                                             {data.DisplayName}
                                           </td>}
@@ -322,7 +326,7 @@ export function SavedCartListitem(props) {
                           {
                             savecartlistitem.length > 0
                               ?
-                              <Link href="#" className="btn btn-secondary dark align-self-end cntechkt" id="logout" onClick={checkoutsavelist} >Continue Checkout</Link>
+                              <Link className="btn btn-secondary dark align-self-end cntechkt" id="logout" onClick={checkoutsavelist} href="#" >Continue Checkout</Link>
                               :
                               null
                           }

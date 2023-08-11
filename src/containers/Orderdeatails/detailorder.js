@@ -1,8 +1,8 @@
 /* eslint-disable no-shadow */
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useInjectReducer } from 'utils/injectReducer';
-import { useInjectSaga } from 'utils/injectSaga';
+import { useInjectReducer } from '@/utils/injectReducer';
+import { useInjectSaga } from '@/utils/injectSaga';
 import { Modal } from "react-bootstrap";
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

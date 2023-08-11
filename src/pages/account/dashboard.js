@@ -6,6 +6,7 @@
  *
  */
 import React, { useEffect, useState } from 'react';
+// import { Link } from 'react-router-dom';
 import Link from 'next/link';
 import { compose } from 'redux';
 import { useInjectReducer } from '@/utils/injectReducer';
@@ -14,18 +15,22 @@ import { ToastContainer } from 'react-toastify';
 import Footer from '../../components/Footer/index';
 import Header from '../../components/Header';
 // import SubNavigation from '../../components/SubNavigation';
-import OrderdetailAPI from '../MainPage/api/orderdetail';
-import MyAccountSideNav from './MyAccountSideNav';
-import reducer from './reducer';
-import saga from './saga';
-////import history from '../../utils/history';
-import PaymentAPI from '../MainPage/api/payment';
-import BreadCrumb from './myAccountBreadcrumb';
+import OrderdetailAPI from '../../containers/MainPage/api/orderdetail.js';
+import MyAccountSideNav from '../../containers/MyAccount/MyAccountSideNav';
+import reducer from '../../containers/MyAccount/reducer';
+import saga from '../../containers/MyAccount/saga';
+////import router from '../../utils/router';
+import { useRouter } from 'next/router';
+
+import PaymentAPI from '../../containers/MainPage/api/payment';
+import BreadCrumb from '../../containers/MyAccount/myAccountBreadcrumb';
 import 'react-toastify/dist/ReactToastify.css';
-export function MyAccount() {
+export function Dashboard() {
   useInjectReducer({ key: 'myAccount', reducer });
   useInjectSaga({ key: 'myAccount', saga });
   // const [firstname, setufirstname] = useState('');
+  const router = useRouter();
+
   const [username, setusername] = useState('');
   // const [lastnamw, setlastnamw] = useState('');
   const [userdetail, setuserdetail] = useState([]);
@@ -35,8 +40,15 @@ export function MyAccount() {
   // const user = localStorage.getItem('User')
   // const userdetail = JSON.parse(user)
   const [isUserLogin, setIsUserLogin] = useState()
+
+
+  //LocalHost Setters
+
+  const [CustGUID,setCustGUID] = useState('');
+
   console.log('isUserLogin--', isUserLogin)
   useEffect(() => {
+    if (typeof window !== 'undefined' && window.localStorage) {
     // setufirstname(window.atob(localStorage.getItem('UserFirstName')))
     // setlastnamw(window.atob(localStorage.getItem('UserLastName')))
     // setphone(localStorage.getItem('UserLastPhone'))
@@ -54,6 +66,7 @@ export function MyAccount() {
     else {
       setIsUserLogin(false)
     }
+}
   }, [isUserLogin])
   useEffect(() => {
     // setufirstname(window.atob(localStorage.getItem('UserFirstName')))
@@ -100,7 +113,12 @@ export function MyAccount() {
     return formattedDate
   }
   const loadorderdeatl = (OrderNumber) => {
-    history.push(`/account/myorders/myorder-detail/${OrderNumber}`, { OrderNumber })
+    // router.push(`/account/myorders/myorder-detail/${OrderNumber}`, { OrderNumber })
+    router.push(
+      {
+        pathname: `/account/myorders/myorder-detail/${OrderNumber}`, // not router.asPath
+        OrderNumber: OrderNumber,
+      })
     localStorage.setItem('OrderNumber', window.btoa(OrderNumber))
     // localStorage.setItem('OrderStatus', window.btoa(OrderStatus))
   }
@@ -110,7 +128,7 @@ export function MyAccount() {
         // (isUserLogin === true || isUserLogin !== null || isUserLogin !== undefined)
         (isUserLogin === false)
           ?
-          history.push({ pathname: '/login', })
+          router.push({ pathname: '/login', })
           :
           <div className='myAccountdashboard'>
             <ToastContainer
@@ -152,8 +170,9 @@ export function MyAccount() {
                                       <div className="card border-primry mb-3">
                                         <div className="card-body text-primary dash-height" id="dashboard-recent-list" style={{ height: '323px' }}>
                                           <h5 className="card-title">Recent Orders</h5>
-                                          <table className="table table-striped">
+                                          
                                             {orderlist.length ?
+                                            <table className="table table-striped">
                                               <tbody>
                                                 {(orderlist || []).map(data =>
                                                   <tr>
@@ -162,12 +181,12 @@ export function MyAccount() {
                                                     <td id='dashboardorderamt'>₹{data.OrderAmount && data.OrderAmount !== "" ? data.OrderAmount.toFixed(2) : "0.00"}</td>
                                                   </tr>
                                                 )}
-                                              </tbody> :
+                                              </tbody></table> :
                                               <p>No record found</p>}
-                                          </table>
+                                          
                                         </div>
                                         <Link className="btn btn-secondary"  href="/account/myorders"
-                                          onClick={() => history.push("/account/myorders")}
+                                          onClick={() => router.push("/account/myorders")}
                                         ><i className="fa fa-eye" aria-hidden="true"></i> View</Link>
                                       </div>
                                     </div>
@@ -190,4 +209,4 @@ export function MyAccount() {
   );
 }
 export default compose(
-)(MyAccount);
+)(Dashboard);

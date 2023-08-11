@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useInjectReducer } from 'utils/injectReducer';
-import { useInjectSaga } from 'utils/injectSaga';
+import { useInjectReducer } from '@/utils/injectReducer';
+import { useInjectSaga } from '@/utils/injectSaga';
 //import history from '../../utils/history';
 import { loadsavecheckoutpopup, savecartcheckout } from './actions';
 import reducer from './reducer';
 import saga from './saga';
+import { useRouter } from 'next/router';
+
 export default function Savecartcheckoutmodel() {
   useInjectReducer({ key: 'myAccount', reducer });
   useInjectSaga({ key: 'myAccount', saga });
   const myaccountReducer = useSelector(state => state.myAccount)
   const dispatch = useDispatch()
   const [ViewCart, setViewCart] = useState(false)
+  const router = useRouter();
+
   const cancelpopup = () => {
     dispatch(loadsavecheckoutpopup(false))
   }
   useEffect(() => {
     if (ViewCart) {
-      history.push('/cart', { savecart: myaccountReducer.savecart })
+      router.push('/cart', { savecart: myaccountReducer.savecart })
     }
   }, [ViewCart])
   const Yescheckout = () => {

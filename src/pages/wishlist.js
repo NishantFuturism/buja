@@ -56,7 +56,8 @@ export function Wishlist() {
   console.log({ homeScreen });
   const dispatch = useDispatch()
   const [isUserLogin, setIsUserLogin] = useState()
-  
+  const closemsg = () => {
+  }
   useEffect(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
 
