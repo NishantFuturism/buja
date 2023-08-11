@@ -64,6 +64,7 @@ export function HomeScreen() {
   const addToCart = useSelector(state => state.addToCart)
   const [page, setPage] = useState(false);
   const sendOtpApiResponse = useSelector(state => state.login)
+  const [CustGUID,setCustGUID] = useState('')
   // console.log('dhgh', cart);
   // const [qty, setQty] = useState(0);
   // const [shoppingCart, setShoppingCart] = useState([]);
@@ -92,6 +93,10 @@ export function HomeScreen() {
     }
   }, [cart]);
   useEffect(() => {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      setCustGUID(localStorage.getItem('CustGUID'))
+
+    }
   }, [])
   useEffect(() => {
     if (localStorage.getItem('generatedtoken')) {
@@ -110,7 +115,7 @@ export function HomeScreen() {
         .then(
           result => {
             result && localStorage.setItem('generatedtoken', result.access_token);
-            Cookies.set('access_token', result.access_token);
+            //Cookies.set('access_token', result.access_token);
             // setheadercall(true)
             // setPage(false)
             // setfootercall(true)
@@ -158,7 +163,7 @@ export function HomeScreen() {
   //   // return history.push(`/Subcategory${patrentcaturl}`,)
   // }
   function loadproductdetail(pageurl, patrentcaturl) {
-    console.log(`pmyy`, patrentcaturl);
+    //console.log(`pmyy`, patrentcaturl);
     // localStorage.setItem('PLPCat', pageurl)
     // localStorage.setItem('PLPparenturl', '/ ')
     // return history.push(`${pageurl}`, { isURLChange: pageurl })
@@ -171,7 +176,7 @@ export function HomeScreen() {
     return router.push(`${pageurl}`, { isURLChange: pageurl })
   }
   function loadproductdetail1(pageurl, patrentcaturl) {
-    console.log("homescreen banner URL=", pageurl, patrentcaturl);
+    //console.log("homescreen banner URL=", pageurl, patrentcaturl);
     const st = pageurl.toString();
     const v1 = st.split('/')
     const v3 = v1[3]
@@ -237,7 +242,7 @@ export function HomeScreen() {
       <ToppSellingOriginal />
       <TopTrendingProduct />
       <FeatureProduct />
-      <NewArrivalProduct />
+      {/*<NewArrivalProduct />*/}
       {/* homeScreenstate && homeScreenstate.loading === true ?
         <BouncingDotsLoader /> : */
         <section className="pt-20 pb-20">
@@ -278,9 +283,9 @@ export function HomeScreen() {
               onClick={() => loadproductdetail1(displayimageposition4[0].PageURL)}
               referrerPolicy='no-referrer' className="d-block w-100" alt='' src={displayimageposition4[0].DocPath} /></a>}</>}
         </section>
-        {/*(localStorage.getItem('CustGUID') === null || localStorage.getItem('CustGUID') === undefined) ? null : <ReorderProduct />*/}
-        {/*(localStorage.getItem('CustGUID') === null || localStorage.getItem('CustGUID') === undefined) ? null :
-        <RecommendedProduct />*/}
+        {(CustGUID === null || CustGUID === undefined) ? null : <ReorderProduct />}
+        {(CustGUID === null || CustGUID === undefined) ? null :
+        <RecommendedProduct />}
         <RecentlyViewProduct />
         <section>
           {homeScreenstate && homeScreenstate.loading === true ?
@@ -291,7 +296,7 @@ export function HomeScreen() {
         </section>
         {
           homeScreenstate && homeScreenstate.loading === false ?
-            <>{(localStorage.getItem('CustGUID') === null || localStorage.getItem('CustGUID') === undefined || localStorage.getItem('CustGUID') === '00000000-0000-0000-0000-000000000000')
+            <>{(CustGUID === null || CustGUID === undefined || CustGUID === '00000000-0000-0000-0000-000000000000')
               ?
               <SignIn />
               :

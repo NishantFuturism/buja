@@ -39,7 +39,7 @@ function Footer() {
   const footerData = useSelector(state => state.homeScreen)
   //const location = useLocation();
   const checkValues = ["/category/", "/product/", "allbrands", "/"];
-  console.log('footerData..', footerData);
+ 
   useEffect(() => {
     if (footerData !== undefined) {
       setFooter(footerData.Ftr)
@@ -107,12 +107,12 @@ function Footer() {
     })
   }, [])
   const menu1 = menu.find(res => res.WebPageId === 99);
-  console.log("res60menu1", menu1);
-  function productlistpage(pageurl, patrentcaturl) {
-    console.log("footer res", pageurl, patrentcaturl);
+
+  function productlistpage(pageurl, patrentcaturl,e) {
+    e.preventDefault();
     setPLPCat(pageurl)
     setPLPparenturl(patrentcaturl)
-    //  router.push(`/${pageurl}`, { isURLChange: pageurl })
+    // return router.push(`/${pageurl}`, { isURLChange: pageurl })
     return router.push(
       {
         pathname: `/${pageurl}`, // not router.asPath
@@ -154,10 +154,10 @@ function Footer() {
     // careers-react
     // investors-react
     //
-    console.log('ssww', e.target.value);
+   
     if (e.target.className === "about-us-react") {
       setpagefootert("about-us")
-      console.log('checkfooter..', e.target.className)
+      
       router.push(`/about-us`)
     } else if (e.target.className === "why-adibuja-react") {
       setpagefootert("why-adibuja")
@@ -245,13 +245,13 @@ function Footer() {
                 <span style={{
                   fontSize: '14px', fontWeight: 'bold', marginTop: '15px',
                 }} >
-                  {console.log("displaynamemain", `${menu1.SubMenus}`)}
+                  
                   {itm.DisplayName} :
                 </span>
                 {itm.SubSubMenus.map(subItm => (
-                  <Link href="" onClick={() => productlistpage(subItm.PageUrl, itm.PageUrl)} className="flinks">
+                  <Link href="#" onClick={(e) => productlistpage(subItm.PageUrl, itm.PageUrl,e)} className="flinks">
                     {subItm.DisplayName}
-                    {console.log("displayname", `${subItm.DisplayName}`)}
+                   
                   </Link>
                 ))}
               </div>

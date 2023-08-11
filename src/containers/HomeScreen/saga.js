@@ -17,10 +17,10 @@ function* gethomedata() {
     yield put({ type: BILLBOARDLIST_SUCCESS, data });
     const Banners = yield call(CustomsAPI.getBanners)
     yield put({ type: BANNER_SUCCESS, Banners });
-    const Dealoftheday = yield call(CustomsAPI.getDealofdayWithPage, 1, 4)
+    const Dealoftheday = yield call(CustomsAPI.getDealofdayWithPage, 1, 100)
     yield put({ type: DEALOFDAY_SUCCESS, Dealoftheday });
-    const getTopsellingdb = yield call(CustomsAPI.getTopsellingdb, 1, 100)
-    yield put({ type: TOPSELLINGDB_SUCCESS, getTopsellingdb })
+    //const getTopsellingdb = yield call(CustomsAPI.getTopsellingdb, 1, 100)
+    //yield put({ type: TOPSELLINGDB_SUCCESS, getTopsellingdb })
     const category = yield call(CustomsAPI.getShopbycategory)
     yield put({ type: CATEGORY_SUCCESS, category });
     const shoppingcartDetails = yield call(mycartAPI.getShoppingcartDetails)

@@ -89,10 +89,9 @@ export function ViewCart() {
     }
   }, []);
 
-  console.log('hh', nextData, nextDatareorder, coupondata);
-  console.log("couponList=", couponList, "cartAllData", cartAllData);
+  
   const viewCartState = useSelector(state => state.viewCart);
-  console.log('viewCartStatestart', viewCartState);
+  
   /*useEffect(() => {
     if (!custGuidL === null || custGuidL === undefined) {
       console.log('login');
@@ -115,7 +114,7 @@ export function ViewCart() {
       .then(response => {
         setViewCartdetails(response)
         setcartAllData(response)
-        console.log("response..", response)
+        
       })
       .catch(error => {
         console.log('error:::', error);
@@ -134,7 +133,7 @@ export function ViewCart() {
     // })
   }
   useEffect(() => {
-    console.log('cartconsole1')
+    
     mycartAPI.getCartCommon().then(res => {
       if (res.CartGuid !== undefined && res.CartGuid !== null) {
         localStorage.setItem('CartGUID', window.btoa(res.CartGuid))
@@ -143,8 +142,7 @@ export function ViewCart() {
     fetchorder();
   }, [viewCartState])
   useEffect(() => {
-    console.log('cartconsole2')
-    console.log('afteraddingtocart')
+    
     mycartAPI.getCartCommon().then(res => {
       if (res.CartGuid !== undefined && res.CartGuid !== null) {
         // localStorage.setItem('CartGUID', window.btoa(res.CartGuid))
@@ -158,25 +156,25 @@ export function ViewCart() {
     setcount(count + 1)
   }, [])
   useEffect(() => {
-    console.log('cartconsole3')
+    
     if (cartAllData !== undefined && cartAllData.cart !== undefined) {
       setcartdata(cartAllData.cart)
     }
   }, [cartAllData])
   useEffect(() => {
-    console.log('cartconsole4')
+    
     if (cartdata !== undefined) {
-      console.log('cartconsole5')
+      
       let cartCustomArray = [];
       cartdata.forEach((element) => {
-        console.log("elementcartdata===", element);
+        
         element.cart.forEach((eleData) => {
-          console.log("elementcartdata68===", eleData);
+          
           cartCustomArray = [...cartCustomArray, eleData];
           // setCartsetData(element.cart)
         })
       })
-      console.log("elementcartdata74===", cartCustomArray);
+      
       setCartsetData(cartCustomArray)
     }
   }, [cartdata])
@@ -188,15 +186,15 @@ export function ViewCart() {
   }
   useFetching(getCartData);
   useEffect(() => {
-    console.log('cartconsole6')
+    
     if (viewCartState !== undefined) {
-      console.log("cart..", viewCartState)
+      
       setcartAllData(viewCartState.cartAllData)
     }
   }, [viewCartState])
   useEffect(() => {
     if (viewCartState !== undefined) {
-      console.log("couponList..", couponList)
+      
       setcouponList(viewCartState.couponList)
     }
   }, [viewCartState])
@@ -230,7 +228,7 @@ export function ViewCart() {
     setTimeout(() => {
       mycartAPI.getCartCommon()
         .then((getcommonres) => {
-          console.log("getcommonres===", getcommonres);
+       
           if (getcommonres.couponvalue > 0) {
             setBtncoupan("Applied")
           }
@@ -245,7 +243,7 @@ export function ViewCart() {
     //     toast('Please enter valid coupon code')
     //   }
     // }
-    console.log("viewCartState==", viewCartState);
+    
     // if (viewCartState !== undefined && apply === true) {
     //   console.log('couponsuccess', viewCartState.couponsuccess.ValidationMessage);
     //   setCouponmsg(viewCartState.couponsuccess.ValidationMessage)
@@ -259,12 +257,12 @@ export function ViewCart() {
   //   }
   // }
   function applyCouponFunc(CouponCode) {
-    console.log("viewCartState==", viewCartState);
-    console.log("chkcoupon..", CouponCode)
+    //console.log("viewCartState==", viewCartState);
+    //console.log("chkcoupon..", CouponCode)
     dispatch(applyCoupon(CouponCode))
     setResetbtn(true)
     setCouponCode(CouponCode);
-    console.log("CouponCode..", CouponCode)
+    
     // if (viewCartState !== undefined && apply === true) {
     //   console.log('couponsuccess', viewCartState.couponsuccess.ValidationMessage);
     //   if (viewCartState.couponsuccess.couponvalue > 0) {
@@ -280,11 +278,11 @@ export function ViewCart() {
     // if (CouponCode !== cartAllData.couponcode) {
     //   alert('not valid ')
     // } else {
-    console.log("chkCouponCode..", CouponCode)
+    //console.log("chkCouponCode..", CouponCode)
     // }
   }
   useEffect(() => {
-    console.log('cartconsole7')
+  
     if (viewCartState !== undefined && apply === true && !resetClicked) {
       setApplyCoupon(true)
       if (viewCartState.couponsuccess.couponvalue > 0) {
@@ -304,7 +302,7 @@ export function ViewCart() {
     }, 2000);
   }
   useEffect(() => {
-    console.log('cartconsole8')
+   
     setisError(false)
     if (msg && msg.addToCartMsg.includes('limit')) {
       setisError(true)
@@ -318,12 +316,12 @@ export function ViewCart() {
       localStorage.setItem('lastVisitedUrl', '/cart');
       router.push('/login')
     } else {
-      router.push('/productprocced/checkout', { total: cartAllData !== undefined && (cartAllData.total) })
+      router.push('/productprocced/checkout', { total: cartAllData !== undefined && (cartAllData.total) }, {shallow: true})
     }
   }
   const handleempty = (data) => {
     // console.log("custGUID..", `${data.skuId}`)
-    console.log('cid..', window.btoa(localStorage.getItem("custGUID")))
+    
     const skuid = 0
     const custguid = window.btoa(localStorage.getItem("custGUID"))
     dispatch(removeFromCart(skuid, custguid));
@@ -336,14 +334,14 @@ export function ViewCart() {
   // console.log('cartdata', viewCartState);
   const sortdata = () => {
     setsort(true)
-    console.log("cartdata1..", cartsetData)
+    
     if (cartdata === undefined && cartsetData === undefined) {
       const data = cartsetData.sort((a, b) => (a.SPPrice - b.SPPrice))
     }
     else {
       const datareverse = cartsetData.sort((a, b) => (b.SPPrice - a.SPPrice));
     }
-    console.log('mbmnbmnb', cartsetData.sort((a, b) => (a.SPPrice - b.SPPrice).reverse));
+    
   }
   useEffect(() => {
     if (sort === true) {
@@ -352,7 +350,7 @@ export function ViewCart() {
   }, [sort])
   const sortproductname = () => {
     setsortName(!sortname)
-    console.log("name..", cartsetData)
+    
     if (sortname === true) {
       const data1 = cartsetData.filter(a => a.DisplayName)
       data1.sort(function (a, b) {
@@ -364,7 +362,7 @@ export function ViewCart() {
         }
         return 0;
       });
-      console.log("data1", data1);
+    
       setSortdata(data1)
     } else {
       // if(cartdata && cartdata.length > 0){
@@ -414,27 +412,26 @@ export function ViewCart() {
     router.push('/subfooter')
   }
   const handleCoupon = (e) => {
-    console.log("eeeeeeeeee1", document.getElementById('btnHiddenCouponcode').value);
-    console.log("eeeeeeeeee", e.target.value);
+  
     setdirectCoupan(e.target.value)
   }
   const handleproductname = () => {
-    console.log("vv", vv);
+   
     const vv = cartsetData.map(itm => itm.DisplayName.sort())
-    console.log("vv", vv);
+  
   }
   useEffect(() => {
-    console.log('cartconsole9')
+ 
     // setsortName(false)
     mycartAPI.getCartCommon(window.atob(localStorage.getItem('CartGUID')))
       .then(response => {
         if (response && response.cart) {
-          console.log("viewcartgetcommon==", response);
+          
           let cartCustomArray = [];
           response.cart.forEach((element) => {
-            console.log("elementcartdata===", element);
+            
             element.cart.forEach((eleData) => {
-              console.log("elementcartdata68===", eleData);
+             
               cartCustomArray = [...cartCustomArray, eleData];
               // setCartsetData(element.cart)
             })
@@ -458,7 +455,7 @@ export function ViewCart() {
   }, [cartdata])
   const sortUnitPrice = () => {
     setsortName(!sortname)
-    console.log("name..", cartsetData)
+    
     if (sortname === true) {
       const data1 = cartsetData.filter(a => a.DisplayName)
       data1.sort(function (a, b) {
@@ -487,7 +484,7 @@ export function ViewCart() {
   }
   const sortSubTotal = () => {
     setsortName(!sortname)
-    console.log("name..", cartsetData)
+
     if (sortname === true) {
       const data1 = cartsetData.filter(a => a.SubTotal)
       data1.sort(function (a, b) {
@@ -520,8 +517,8 @@ export function ViewCart() {
   return (
     <>
       <ToastContainer />
-      {applycoupon && <Success isError={!isCouponApplied} msg={couponmsg} close={closemsg} />}
-      {resetClicked && <Success isError msg="Coupon code removed" close={closemsgcancelcoupon} />}
+      {applycoupon && <Success isError={!isCouponApplied} msg={couponmsg} /*close={closemsg}*/ />}
+      {resetClicked && <Success isError msg="Coupon code removed" /*close={closemsgcancelcoupon}*/ />}
       {msg !== undefined && msg.IsMsgBar && < Success isError={isError} msg={msg.addToCartMsg.includes('|') ? msg.addToCartMsg.split('|')[1] : msg.addToCartMsg} />}
       <div className="login-wrapper pb-35">
         <div className="container-fluid">
@@ -715,7 +712,7 @@ export function ViewCart() {
                                                     <td className="colwid200">Sub Total</td>
                                                     {cartAllData !== undefined && (<td className="mycart_7 colwid150"> ₹{parseFloat(cartAllData.subtotal).toFixed(2)}</td>)}
                                                   </tr>
-                                                  {console.log("cartAllData amount==", cartAllData)}
+                                            
                                                   <tr>
                                                     <td className="colwid200">Coupon Amount</td>
                                                     {cartAllData !== undefined && (<td className="mycart_7 colwid150" id="CouponDiscount">- ₹{parseFloat(cartAllData.couponvalue).toFixed(2)}</td>)}

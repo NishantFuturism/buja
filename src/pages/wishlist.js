@@ -21,6 +21,8 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 //import SubNavigation from '../../components/SubNavigation';
 //import history from '../../utils/history';
+import { useRouter } from 'next/router';
+
 import AddToCart from '../containers/AddToCart';
 import CustomsAPI from '../containers/MainPage/api/homeServices';
 import mycartAPI from '../containers/MainPage/api/mycartAPI';
@@ -52,6 +54,8 @@ export function Wishlist() {
   const homeScreen = useSelector(state => state.homeScreen)
   const addtocartreducer = useSelector(state => state.addToCart)
   const wishlistReducerData = useSelector(state => state.wishlist)
+  const router = useRouter();
+
   console.log("wishlistReducerData=", wishlistReducerData);
   console.log({ homeScreen });
   const dispatch = useDispatch()
@@ -139,7 +143,12 @@ export function Wishlist() {
     </div>
   )
   const productdetail = (PageUrl) => {
-    history.push(`/product/${PageUrl}`, { skuUrl: PageUrl })
+    // history.push(`/product/${PageUrl}`, { skuUrl: PageUrl })
+    router.push(
+      {
+        pathname: `/product/${PageUrl}`, // not router.asPath
+        skuUrl: PageUrl,
+      })
     // history.push(`/product/${PageUrl}`, { state: { PageUrl } })
     localStorage.setItem('PageUrl', window.btoa(PageUrl))
   }
@@ -159,7 +168,7 @@ export function Wishlist() {
         // (isUserLogin === true || isUserLogin !== null || isUserLogin !== undefined)
         (isUserLogin === false)
           ?
-          history.push({ pathname: '/login', })
+          router.push({ pathname: '/login', })
           :
           <div>
             <ToastContainer

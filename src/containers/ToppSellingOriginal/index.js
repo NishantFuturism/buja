@@ -99,7 +99,7 @@ export function ToppSellingOriginal(props) {
   //     setTopSelling([...topSelling, ...topSellingDB.Topsellingdb])
   //   }
   // }, [topSellingDB])
-  useEffect(() => {
+  /*useEffect(() => {
     if (props && props.searchtopsell) {
       // else {
       setTopSelling(props.searchtopsell.dealData)
@@ -116,7 +116,7 @@ export function ToppSellingOriginal(props) {
     //   setTopSelling(props && props.deal && props.deal.Data)
     //   settotalPages(props && props.deal && props.TotalNoOfPages)
     // }
-  }, [homeScreen,])
+  }, [homeScreen,])*/
   // useEffect(() => {
   //   if (homeScreen !== undefined && homeScreen.DealofthdayData !== undefined) {
   //     setTopSelling(homeScreen.DealofthdayData.Data)
@@ -140,23 +140,21 @@ export function ToppSellingOriginal(props) {
   }
   useEffect(() => {
     setFirstCall(FirstCall + 1)
-    dispatch(nextBtn(1, 9))
+    //dispatch(nextBtn(1, 9, props.SkuDetailId))
   }, [])
   useEffect(() => {
     if (nexta === true && nextData !== undefined) {
-      setTopSelling([...topSelling, ...nextData.dealData])
+      setTopSelling([...topSelling, ...nextData.dealData.skuListingModels])
     }
   }, [nextData])
   useEffect(() => {
-    // console.log("nextData.dealData", nextData, homeScreen);
-    if (props && props.searchtopsell) {
-      CustomsAPI.getTopsellingdb(1, 8)
-        .then(response => {
-          setTopSelling(response.Data)
-          // console.log("response", response);
-        })
-    }
-  }, [props && props.searchtopsell])
+    //console.log("customdata11", props);
+    CustomsAPI.getTopsellingdb(1, 8, props.SkuDetailId)
+      .then(response => {
+        setTopSelling(response.skuListingModels)
+        //console.log("responsetopselling", response);
+      })
+  }, [])
   useEffect(() => {
     if (nextData !== undefined) {
       // console.log("useffect setShppingcart");
@@ -267,8 +265,8 @@ export function ToppSellingOriginal(props) {
   // )
   useEffect(() => {
     // console.log('Dealofday', Dealofday);
-    if (FirstCall > 0 && count < totalPages) {
-      dispatch(nextBtn(pageNum, 9))
+    if (FirstCall > 0 && count < totalPages && props.SkuDetailId !== undefined) {
+      dispatch(nextBtn(pageNum, 9, props.SkuDetailId))
       setCount(count + 1)
     }
   }, [pageNum])

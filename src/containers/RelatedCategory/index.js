@@ -155,7 +155,7 @@ export function RelatedCategory() {
         setgetDealofday(response)
         // setunsetfilter(response)
       })
-  }, [])
+  })
   function objCreation(SKUFilterPriceId, Quantity) {
     const obj = {}
     obj[`${SKUFilterPriceId}`] = Quantity

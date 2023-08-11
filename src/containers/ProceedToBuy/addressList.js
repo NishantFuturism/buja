@@ -6,9 +6,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { compose } from 'redux';
-import '../../../assets1/css/default.min.css';
-import '../../../assets1/css/responsive.min.css';
-import '../../../assets1/css/style.min.css';
+import '../../../public/assets1/css/default.min.css';
+import '../../../public/assets1/css/responsive.min.css';
+import '../../../public/assets1/css/style.min.css';
 // import { Alert } from 'react-bootstrap';
 // import { toast, ToastContainer } from 'react-toastify';
 import CheckoutAPI from '../MainPage/api/checkout';
@@ -20,7 +20,7 @@ import { getlocationtitle } from '../LocationPopup/actions';
 import Success from '../../components/ShowAlert/success';
 import Warn from '../../components/ShowAlert/warn';
 import { ConstantsValues } from '../MainPage/api/homeServices';
-import logoanimation from '../../images/adibuja-logo-animation.gif'
+//import logoanimation from '../../images/adibuja-logo-animation.gif'
 export function AddressList(props) {
   // console.log('props', props);
   const [addnew, setaddnew] = useState(false)
@@ -556,13 +556,13 @@ export function AddressList(props) {
       setdetectlocview(false)
     }
   }, [pin, updateaddress, locationstatus])
-  useEffect(() => {
+  /*useEffect(() => {
     setInterval(() => {
       setLocationstatus(false)
     }, 5000);
   }, [closemsg])
   const closemsg = () => {
-  }
+  }*/
   const handleDetectClose = () => {
     setdetectlocview(false)
     // setlocationname('')
@@ -590,7 +590,7 @@ export function AddressList(props) {
       // change css
       <div className='row'>
         <div className='col-lg-12 text-center mt-25 mb-25' >
-          <img src={logoanimation} alt='' style={{ justifySelf: 'center', width: '80px', height: '80px' }} />
+          <img src='/images/adibuja-logo-animation.gif' alt='' style={{ justifySelf: 'center', width: '80px', height: '80px' }} />
           {/* <i
             style={{ justifySelf: 'center' }}
             className="fa fa-spin fa-spinner fa-4x"></i> */}

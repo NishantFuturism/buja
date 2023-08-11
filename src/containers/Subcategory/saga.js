@@ -8,10 +8,13 @@ export default function* subcategorySaga() {
   yield takeEvery(PRODUCT_BRAND_LIST_FILTER, getbrandfilter)
 }
 function* getrepos(action) {
-  const subCategoryProductList = yield call(CustomsAPI.getSubCategoryProductList, action.page, action.caturl, action.parentcatURL,action.min,action.max)
-  yield put({ type: PRODUCT_LIST_SUCCESS, subCategoryProductList });
-  const shoppingcartDetails = yield call(mycartAPI.getShoppingcartDetails)
-  yield put({ type: SHOPPING_CART_DETAILS, shoppingcartDetails });
+  console.log('caturl--------',action.caturl)
+  if (action.caturl && action.caturl!==undefined) {
+    const subCategoryProductList = yield call(CustomsAPI.getSubCategoryProductList, action.page, action.caturl, action.parentcatURL,action.min,action.max)
+    yield put({ type: PRODUCT_LIST_SUCCESS, subCategoryProductList });
+    const shoppingcartDetails = yield call(mycartAPI.getShoppingcartDetails)
+    yield put({ type: SHOPPING_CART_DETAILS, shoppingcartDetails });
+  }
 }
 function* getbrandfilter(action) {
   const brandlistfilterdata = yield call(ProductlistingAPI.getskuFilterlisting, action.valueString, action.valuepackString, action.fieldString, action.valuediscountstring, action.caturl, action.min, action.max, action.sortby)

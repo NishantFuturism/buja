@@ -61,8 +61,8 @@ import { NumberFormat } from 'intl';
 
 import { RelatedCategory } from '../../../containers/RelatedCategory';
 import SignIn from '../../../components/Footer/signin';
-import logoanimation from '../../../../public/images/adibuja-logo-animation.gif';
-import sortimg from '../../../../public/images/dropdownsort.png';
+//import logoanimation from '../../../../public/images/adibuja-logo-animation.gif';
+//import sortimg from '../../../../public/images/dropdownsort.png';
 export function Subcategory(props) {
     
   useInjectReducer({ key: 'subcategory', reducer });
@@ -137,21 +137,19 @@ export function Subcategory(props) {
       setAdvfilterData(Object.entries(groupBy(advancegetskufilterdata, v => v.Caption)))
     }
   }, [advancegetskufilterdata])
-  console.log("advfilterData===", advfilterData);
+  
 
   const dispatch = useDispatch()
   const SubcategoryState = useSelector(state => state.subcategory)
   const homestate = useSelector(state => state.homeScreen)
   const addToCart = useSelector(state => state.addToCart)
   const mavigationBarReducer = useSelector(state => state.mavigationBar)
-  console.log("mavigationBarReducer...", mavigationBarReducer)
+  
   const sortByfiltersList = [{ ListItem: ' Name (A - Z)', id: 1, value: 'AZ' }, { ListItem: ' Name (Z - A)', id: 2, value: 'ZA' }, { ListItem: 'Price (Low - High)', id: 3, value: 'PLH' }, { ListItem: 'Price (High - Low)', id: 4, value: 'PHL' }, { ListItem: 'Popularity', id: 5, value: 'POP' }]
 
   
 
-  console.log("SubcategoryStatepage=", SubcategoryState);
-
-  console.log("groupedData=", groupedData);
+  
 
   let fixIntCount;
   let Finalnopages;
@@ -166,23 +164,23 @@ export function Subcategory(props) {
 
   const handleScroll = () => {
     
-    console.log("onscroll pageno=", page);
+    
     
     if (FirstCall > 0 && URL !== undefined) {
-      console.log("onscroll pageno=", page);
+      
       if (fixIntCount + 1 > page) {
         setscrollvalue(scrollvalue + 200)
         setTimeout(() => {
           setPage(page + 1)
         }, 1000);
-        console.log("onscroll pageno=", page);
+        
       }
     } else {
       setloading(true)
     }
    
   }
-  useEffect(() => {console.log('HelloHere1')
+  useEffect(() => {
     setisActive(true)
     if (localStorage.getItem('generatedtoken')) {
       
@@ -208,9 +206,9 @@ export function Subcategory(props) {
     }
   }, [])
   useEffect(() => {
-    console.log("152 handle scroll fucntion=", filterflag, Reset, groupedData);
+    console.log('youareherebuddy')
     if (filterflag === false && Reset === false) {
-      console.log("235 handle scroll fucntion=", URL[2], parentcatURL[1]);
+ 
       dispatch(getproductlist(page + 1, URL[2], parentcatURL[1], null, null))
     }
   }, [page]);
@@ -243,7 +241,7 @@ export function Subcategory(props) {
     setURL(finalPlpCarUrl.split('/'))
     const parentUrl = location.pathname;
     const finalParentUrl = parentUrl.replace(/(.*\/)(category\/.*?)(\/.*)/, "$2");
-    console.log(`coming here to print--${finalParentUrl}`);
+  
     localStorage.setItem('PLPparenturl', finalParentUrl)
     setParentcatURL(finalParentUrl.split('/'))
 
@@ -276,16 +274,16 @@ export function Subcategory(props) {
   }, [SubcategoryState])
   
   useEffect(() => {
-    console.log('thisisimportant');
-    console.log('thisisimportant1',page);
-    console.log('thisisimportant2',URL[2]);
-    console.log('thisisimportant3',parentcatURL[1]);
-
+    console.log('coming here1')
     if (URL !== undefined && URL[2] !== undefined && initialCall && checkfilterflag === false && filterflag === false && Reset === false) {
       
-      console.log("get productlist=");
+      console.log('coming here11',parentcatURL[1])
+      //dispatch(getproductlist(page, URL[2], parentcatURL[1], null, null))
       
-      dispatch(getproductlist(page, URL[2], parentcatURL[1], null, null))
+      CustomsAPI.getSubCategoryProductList(page, URL[2], parentcatURL[1], null, null).then(response => {
+          setgroupedData(response.skuListingModels)
+        }
+      )
       
       ProductlistingAPI.getadvancegetskufilter(URL[2], min, max)
         .then(response => {
@@ -296,7 +294,6 @@ export function Subcategory(props) {
       
     }
     if (FirstCall > 0 && URL !== undefined && !initialCall && Reset === true) {
-      console.log("valuediscountstring===", FirstCall, URL, initialCall);
       
       const sortby = Seleced || ''
       dispatch(getbrandListfilter(valueString, valuepackString, fieldString, valuediscountstring, URL[2], min, max, sortby))
@@ -320,7 +317,7 @@ export function Subcategory(props) {
     }
     
     if (FirstCall > 0 && URL !== undefined && !initialCall && Reset === true) {
-      console.log("valuediscountstring===", FirstCall, URL, initialCall);
+    
       const sortby = Seleced || ''
       
       dispatch(getbrandListfilter(valueString, valuepackString, fieldString, valuediscountstring, URL[2], min, max, sortby))
@@ -328,14 +325,14 @@ export function Subcategory(props) {
     }
   }, [valueString, valuediscountstring, valuepackString, fieldString, URL, min, max, Seleced,])
   useEffect(() => {
-    console.log("336handlelistner==", initialCall, filterflag, Reset, SubcategoryState)
+
     if (initialCall && filterflag === false && Reset === false) {
       if (SubcategoryState && SubcategoryState.productlist.length === 0) {
         window.scrollTo(0, 0);
       }
       if (SubcategoryState && SubcategoryState.productlist) {
         window.addEventListener('scroll', handleScroll);
-        console.log("336handlelistner==", SubcategoryState)
+    
       }
       return () => {
         window.removeEventListener('scroll', handleScroll);
@@ -344,7 +341,7 @@ export function Subcategory(props) {
   }, [handleScroll,])
   // Filter onchange multiselect dropdown
   const filteronChange = (selectedList, selectedItem) => {
-    console.log("580eventbrandlist", selectedList, selectedItem,);
+ 
     const finalseletItem = [...selectItemDisp, ...selectedList];
     const uniqueNames = finalseletItem.filter((val, id, disparray) => disparray.indexOf(val) == id);
     
@@ -354,7 +351,7 @@ export function Subcategory(props) {
     setReset(true);
     // brandlist
     if (selectedItem.FieldId === 0 && selectedItem.StaticFilter === 0) {
-      console.log("580eventbrandlist", selectedItem,);
+ 
       if (valueString.length !== '') {
         
         valueString.includes(`${selectedItem.valueId}`)
@@ -369,7 +366,7 @@ export function Subcategory(props) {
     }
     // Weight, Glass Type, Primary Camera, Internal Storage, RAM, Colour
     if (selectedItem.FieldId !== 0 && selectedItem.fitlerName !== "Pack Size") {
-      console.log("580eventbrandlist", selectedItem,);
+   
       if (valuepackString.length !== 0) {
         valuepackString.includes(`${selectedItem.name}`) ? setvaluepackString(removeFromString(valuepackString, `${selectedItem.name}`)) : setvaluepackString(removedoubleComma(`${valuepackString},${selectedItem.name}`))
         
@@ -381,7 +378,7 @@ export function Subcategory(props) {
     }
     
     if (selectedItem.fitlerName === "Pack Size") {
-      console.log("580eventbrandlist", selectedItem,);
+ 
       if (valuepackString.length !== 0) {
         
         valuepackString.includes(`${selectedItem.valueId}`) ? setvaluepackString(removeFromString(valuepackString, `${selectedItem.valueId}`)) : setvaluepackString(removedoubleComma(`${valuepackString},${selectedItem.valueId}`))
@@ -395,7 +392,7 @@ export function Subcategory(props) {
     }
     
     if (selectedItem.StaticFilter !== 0) {
-      console.log("580eventbrandlist", selectedItem,);
+    
       if (valuediscountstring !== '') {
         valuediscountstring.includes(`${selectedItem.valueId}`) ? setvaluediscountstring(removeFromString(valuediscountstring, `${selectedItem.valueId}`)) :
           (setvaluediscountstring(removedoubleComma(`${valuediscountstring},${selectedItem.valueId}`)))
@@ -405,7 +402,7 @@ export function Subcategory(props) {
     }
   }
   const RemoveSelectItem = (selectedList, selectedItem) => {
-    console.log("580eventbrandlist", selectedItem, advancegetskufilterdata)
+   
     setSelectItemDisp((current) =>
       current.filter((selectItem) => selectItem.name !== selectedItem.name)
     );
@@ -415,7 +412,7 @@ export function Subcategory(props) {
     
     setReset(true);
     if (selectedItem.FieldId === 0 && selectedItem.StaticFilter === 0) {
-      console.log("580eventbrandlist", selectedItem,);
+    
       if (valueString.length !== '') {
         
         valueString.includes(`${selectedItem.valueId}`)
@@ -429,7 +426,7 @@ export function Subcategory(props) {
       }
     }
     if (selectedItem.FieldId !== 0 && selectedItem.fitlerName !== "Pack Size") {
-      console.log("580eventbrandlist", selectedItem,);
+     
       if (valuepackString.length !== 0) {
         valuepackString.includes(`${selectedItem.name}`) ? setvaluepackString(removeFromString(valuepackString, `${selectedItem.name}`)) : setvaluepackString(removedoubleComma(`${valuepackString},${selectedItem.name}`))
         
@@ -441,7 +438,7 @@ export function Subcategory(props) {
     }
     
     if (selectedItem.fitlerName === "Pack Size") {
-      console.log("580eventbrandlist", selectedItem,);
+  
       if (valuepackString.length !== 0) {
         
         valuepackString.includes(`${selectedItem.valueId}`) ? setvaluepackString(removeFromString(valuepackString, `${selectedItem.valueId}`)) : setvaluepackString(removedoubleComma(`${valuepackString},${selectedItem.valueId}`))
@@ -454,7 +451,7 @@ export function Subcategory(props) {
       }
     }
     if (selectedItem.StaticFilter !== 0) {
-      console.log("580eventbrandlist", selectedItem,);
+    
       if (valuediscountstring !== '') {
         valuediscountstring.includes(`${selectedItem.valueId}`) ? setvaluediscountstring(removeFromString(valuediscountstring, `${selectedItem.valueId}`)) :
           (setvaluediscountstring(removedoubleComma(`${valuediscountstring},${selectedItem.valueId}`)))
@@ -529,9 +526,11 @@ export function Subcategory(props) {
     setisActive(!isActive)
   }
   useEffect(() => {
-    window.onload = function () {
-      document.getElementById('app').className = 'pdp-category-page';
-    };
+    if (typeof window !== 'undefined' && window.localStorage) {
+        window.onload = function () {
+        document.getElementById('__next').className = 'pdp-category-page';
+        };
+    }
   })
 
   function handlefilter() {
@@ -597,7 +596,7 @@ export function Subcategory(props) {
                                 <option value={itm.value}>{itm.ListItem}</option>
                               ))}
                             </select>
-                            <img src={sortimg} alt=''></img>
+                            <img src='/images/dropdownsort.png' alt=''></img>
                           </div>
                           : null}
                         {/* : <div className='custom-space-while-no-content'></div>} */}
@@ -738,7 +737,7 @@ export function Subcategory(props) {
                       }
                     </div>
                   </div>
-                  {loading && Reset === false && filterflag === false ?
+                  {loading && Reset === false && filterflag === false && groupedData ==""?
                     <div className='row'>
                       <div className='col-lg-12 text-center mt-25 mb-25' style={{ top: '40px' }}>
                         <img src='/images/adibuja-logo-animation.gif' alt='' style={{ justifySelf: 'center', width: '80px', height: '80px' }} />
@@ -776,11 +775,11 @@ export function Subcategory(props) {
                         </div>
                         :
                         <>
-                          {console.log("loadingprodgroupdata", groupedData, Reset, filterflag)}
+                        
                           <div id="products" className="shop-product-wrap row " >
                             {groupedData == "" && Reset === false ?
                               <div className='col-lg-12 text-center mt-25 mb-25' style={{ top: '40px' }}>
-                                {console.log("loadingprod")}
+                      
                                 <img src='/images/adibuja-logo-animation.gif' alt='' style={{ justifySelf: 'center', width: '80px', height: '80px' }} />
                                 {/* <i
                                   style={{ justifySelf: 'center' }}
@@ -789,7 +788,7 @@ export function Subcategory(props) {
                               : groupedData && groupedData.length === 0 && Reset === true ?
                                 <>
                                   <div className="col-md-12" style={{ padding: '5%' }}>
-                                    {console.log("loadingprod")}
+                              
                                     <div className="alert alert-warning text-center">Products Not Found</div>
                                   </div>
                                   <div className='col-lg-6' >
@@ -801,7 +800,7 @@ export function Subcategory(props) {
                                   {/* <h3 className='catname product-list-header' style={{ fontSize: '24px' }}>{productcategoryName}({productcount})
                                       </h3> */}
                                   {/* {groupedData.length > 1 && <h3 className='catname product-list-header' style={{ fontSize: '24px' }}>({groupedData.length})</h3>} */}
-                                  {console.log("htmlgroupData=", groupedData)}
+                              
                                   {groupedData !== undefined && (groupedData.map((data, i) =>
                                     <>
                                       {/* {data[1] !== undefined ? <h3 className='catname product-list-header' style={{ fontSize: '24px' }}>{data[0]} ({data[1][0].OverAllCount})

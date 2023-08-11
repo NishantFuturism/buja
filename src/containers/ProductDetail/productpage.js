@@ -41,7 +41,7 @@ function Productpage(props) {
   const [ValueId, setValueId] = useLocalStorage('ValueId',null);
   const [skudetailid, setskudetailid] = useLocalStorage('skudetailid',null);
 
-  console.log('nbvbnvbn', { props });
+  
   const [filtered, setFiltered] = useState(props.data.FilterList[0]);
   const dispatch = useDispatch()
   const [Seleced, setSeleced] = useState('');
@@ -55,9 +55,9 @@ function Productpage(props) {
   const [zoomimage, setzoomimage] = useState('');
   const locationPopupState = useSelector(state => state.locationPopup)
   const skuproduct = useSelector(state => state.product)
-  console.log("skuproduct=", skuproduct);
+  
   const loadProducts = useSelector(state => state.loadProducts)
-  console.log("Loaddd..", loadProducts)
+  
   // const [QtyCout, setQtyCout] = useState(1);
   // const [reviewdata, setSeleced] = useState('');
   /* useEffect(() => {
@@ -81,7 +81,7 @@ function Productpage(props) {
     }
   }, [skuproduct])
   const addToCartRdcr = useSelector(state => state.addToCart)
-  console.log("pdpaddtocartreducer==", addToCartRdcr, shoppingCart);
+  
   const changeFltr = (newFL,) => {
     setSeleced(newFL);
     const P = props.data.FilterList ? props.data.FilterList.find(i => i.ListItem === newFL) : props.data.FiltersList.find(i => i.ListItem === newFL);
@@ -93,11 +93,11 @@ function Productpage(props) {
   // }, [props])
   useEffect(() => {
     if (props.data.FilterList !== undefined) {
-      console.log("useEffect add to cart")
+      
       setFiltered(props.data.FilterList[0])
     }
   }, [props,])
-  console.log("setFiltered===", filtered)
+  
   // function AddToWishlist(SkuId, SKUFilterPriceId) {
   //   if (CustGUID === null) {
   //     history.push('/login')
@@ -114,7 +114,7 @@ function Productpage(props) {
     }
   }
   useEffect(() => {
-    console.log("props.data.SkuImageModel", props.data);
+    
     if (props.data.SkuImageModel !== undefined) {
       setSkuImageModel(props.data.SkuImageModel)
     }
@@ -151,12 +151,12 @@ function Productpage(props) {
       setShoppingCart(addToCartRdcr.shoppingcartDetails)
     }
   }, [addToCartRdcr])
-  console.log("pdp shopping cart==", shoppingCart)
+  
   // const QtyCoutFun = () => {
   //   setQtyCout(1)
   // }
   function PDAPpage(skuid, ValueId, SkuCode) {
-    console.log('sss', skuid, ValueId, SkuCode);
+    
     setskudetailid(skuid)
     setValueId(ValueId)
     history.push(`/productsale/Sellerlist/`, { skudetailid: skuid })
@@ -172,10 +172,10 @@ function Productpage(props) {
   // };
 
   const addcompare = (SkuCode) => {
-    console.log("load..", loadProducts)
+    
     // console.log("skuid..", (loadProducts.comaprelist).SkuId)
     const compare = setskuproduct1(SkuCode)
-    console.log('compare..', compare)
+    
     if ((loadProducts.comaprelist).length <= 2) {
       dispatch(addToComapre(skuproduct1))
       toast("Product added to compare list successfully")
@@ -211,20 +211,20 @@ function Productpage(props) {
     let prductItem = false;
     if (shoppingCart !== undefined && shoppingCart !== "") {
       shoppingCart.forEach(element => {
-        console.log("filterelement==", element.SKUFilterPriceId, filtered.SKUFilterPriceId)
+        
         // if (element.SkuDetailId === filtered.SkuDetailId) {
         if (element.SKUFilterPriceId === filtered.SKUFilterPriceId) {
-          console.log("filterelement==", element.SKUFilterPriceId, filtered.SKUFilterPriceId)
+          
           prductItem = true;
         }
         // }
       })
     }
-    console.log("PDP prodList", prductItem)
+    
     if (prductItem === false) {
       mycartAPI.updatecart(null, 1, filtered.SkuDetailId, filtered.SKUFilterPriceId)
         .then((updateres) => {
-          console.log("updateres===>", updateres);
+          
         })
     }
     // if (addToCartRdcr === ) {
@@ -259,7 +259,7 @@ function Productpage(props) {
   //   setzoomimage(SkuImageModel && SkuImageModel.map(d => d.ZoomImage))
   // }, [image])
   useEffect(() => {
-    console.log("SkuImageModel", SkuImageModel);
+    
     if (SkuImageModel && SkuImageModel.length > 0) {
       setimage(SkuImageModel && SkuImageModel[0].PDPImage !== "undefined" && SkuImageModel[0].PDPImage)
       setzoomimage(SkuImageModel && SkuImageModel[0].ZoomImage)
@@ -270,14 +270,14 @@ function Productpage(props) {
     }
   }, [props])
   function changeimage(imaged, changezoom) {
-    console.log("change", imaged, changezoom);
+    
     setimage(imaged)
     setzoomimage(changezoom)
   }
   function addDefaultSrc(ev) {
-    console.log("SkuImageModel", SkuImageModel);
+    
     // ev.target.src = SkuImageModel.map(d => d.PDPImage)
-    console.log('ss', ev.target.src);
+    
     if (ev.target.src === 'https://devuireact.adibuja.com/') {
       ev.target.src = 'https://devadmin.adibuja.com/Media/Images/250x250/image_not_found.jpg'
     }
@@ -294,7 +294,7 @@ function Productpage(props) {
   //   addDefaultSrc()
   // }, [])
   // console.log('product-details-main-wrappe', SkuImageModel.map(d => d.PDPImage), image[0], zoomimage[0]);
-  console.log("props.data", props.data, "filtered====================", filtered);
+  
   return (
     <>
       <BreadCrumb product="product" activepage={props.data.ProductName} className="productpageBreadcrumb" />

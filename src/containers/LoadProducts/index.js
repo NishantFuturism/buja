@@ -64,7 +64,7 @@ export function LoadProducts(props) {
   // const [, setCookie,] = useCookies(['name']);
   // const { isListView, setisListView } = props;
   const router = useRouter();
-  console.log(`rohitaaaa${JSON.stringify(props)}`);
+  //console.log(`rohitaaaa${JSON.stringify(props)}`);
   const { isActive } = props;
   // console.log("isActive..", isActive)
   // const { addToCartFunc, closeMsgBarFunc } = props
@@ -73,7 +73,7 @@ export function LoadProducts(props) {
   const [ProdImg, setProdImg] = useState('');
   // const [selectItemDisp, setSelectItemDisp] = useState([]);
   // const [selectedproduct, setselectedproduct] = useState([]);
-  console.log(ProdImg);
+  //console.log(ProdImg);
   // const [showthumbnailimg, setShowThumbnailImg] = useState('false')
   // const [min, setmin] = useState('');
   // const [max, setMax] = useState('');
@@ -88,7 +88,7 @@ export function LoadProducts(props) {
   // console.log('loadproduct homeScreen=', homeScreen);
   const loadProducts = useSelector(state => state.loadProducts)
   // const SubcategoryState = useSelector(state => state.subcategory)
-  console.log("Loaddd..", loadProducts)
+  //console.log("Loaddd..", loadProducts)
   // console.log("filterproduct..", filterproduct)
   // console.log("SubcategoryState..", SubcategoryState)
   // console.log('loadproducts homeScreen=', homeScreen);
@@ -110,7 +110,7 @@ export function LoadProducts(props) {
   // const [data, setdata] = useState([]);
   const dispatch = useDispatch()
   // const filterlist = props !==
-  const [filtered, setFiltered] = useState([]);
+  const [filtered, setFiltered] = useState(props.data.FiltersList[0]);
   // const [skuID, setskuID] = useState('');
   // const [recent, setrecent] = useState(false);
   const [filtererror, setfiltererror] = useState(false);
@@ -131,7 +131,7 @@ export function LoadProducts(props) {
   const changeFltr = (newFL) => {
     setSeleced(newFL);
     const P = props.data.FiltersList.find(i => i.ListItem === newFL);
-    // console.log("P97=", P);
+    //console.log("P97=", P);
     setFiltered(P);
     // setSelecedPackSize([...SelecedPackSize, ...newFL.toString()]);
     // localStorage.setItem('selectedPacksize', newFL)
@@ -160,12 +160,14 @@ export function LoadProducts(props) {
         }
       }
       setSeleced(lastSelectedVariant)
+      //console.log('coming here1')
       setFiltered(props.data && props.data.FiltersList[productFiltersPosition])
     } else {
+      //console.log('coming here2')
       setFiltered(props.data && props.data.FiltersList[0])
     }
     // setFiltered(props.data && props.data.FiltersList[0])
-  }, [props,])
+  }, [])
   useEffect(() => {
     if (props.data.FiltersList[0] === undefined) {
       setfiltererror(true)
@@ -357,13 +359,13 @@ export function LoadProducts(props) {
     // }
   }
   const AddToCompare1 = (SkuCode) => {
-    console.log("load..", loadProducts)
+    //console.log("load..", loadProducts)
     // console.log("skuid..", (loadProducts.comaprelist).SkuId)
     // const finalseletItem = [selectItemDisp, ...SkuCode];
     // const uniqueNames = finalseletItem.filter((val, id, disparray) => disparray.indexOf(val) == id);
     // setSelectItemDisp(uniqueNames);
     const compare = localStorage.setItem('skuproduct1', SkuCode)
-    console.log('compare..', compare)
+    //console.log('compare..', compare)
     if ((loadProducts.comaprelist).length <= 2) {
       dispatch(addToComapre(localStorage.getItem('skuproduct1')))
       toast("Product added to compare list successfully")
@@ -375,7 +377,7 @@ export function LoadProducts(props) {
     }
   }
   function LoadProduct(event, PageUrl) {
-    console.log("eventttt", event);
+    //console.log("eventttt", event);
     // console.log("PageUrl", PageUrl);
     dispatch(enablequickreviw(true, PageUrl))
     localStorage.setItem('PageUrl', window.btoa(PageUrl))
@@ -426,7 +428,7 @@ export function LoadProducts(props) {
     // console.log("ProdImg..", ProdImg)
     setProdImg(Img);
   }
-  console.log(changeImg);
+  //console.log(changeImg);
   // const handleviewmore = () => {
   //   toast("imgview")
   // }
@@ -561,6 +563,7 @@ export function LoadProducts(props) {
                       {/* <Link href="/product">{ props.data.DisplayName}</Link> */}
                     </h4>
                   </div>
+                  { filtered && filtered.FilterSPPrice ?
                   <div className="price-box">
                     <div>
                       <span className="regular-price">
@@ -582,6 +585,7 @@ export function LoadProducts(props) {
                         </div>}
                     </div>
                   </div>
+                  : ""}
                   <div className='starReating'>
                     {[...Array(5)].map((star, index) => {
                       const ifeedb = index + 1;

@@ -24,7 +24,7 @@ import saga from './saga';
 import Savecartcheckoutmodel from './savecartcheckoutmodel';
 import DeletePopUp from '../../components/ShowAlert/deletepopup';
 import 'react-toastify/dist/ReactToastify.css';
-// import logoanimation from '../../images/adibuja-logo-animation.gif'
+import logoanimation from '../../images/adibuja-logo-animation.gif'
 export function SavedCartListitem(props) {
   useInjectReducer({ key: 'myAccount', reducer });
   useInjectSaga({ key: 'myAccount', saga });
@@ -92,7 +92,7 @@ export function SavedCartListitem(props) {
     dispatch(loadsavecheckoutpopup(true, window.atob(localStorage.getItem('listname'))))
   }
   const productdetail = (PageUrl) => {
-    // router.push(`/product/${PageUrl}`, { skuUrl: PageUrl })
+    // history.push(`/product/${PageUrl}`, { skuUrl: PageUrl })
     router.push(
       {
         pathname: `/product/${PageUrl}`, // not router.asPath
@@ -223,7 +223,7 @@ export function SavedCartListitem(props) {
                           <h3>Saved Cart</h3>
                           <div className="col-12 col-sm-12 col-md-12 col-lg-12 p-0">
                             <div className="table-responsive">
-                            <table id="tblSavedCart" className="table">
+                              <table id="tblSavedCart" className="table">
                                 <thead>
                                   <tr style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
                                     <th width="150">Image</th>
@@ -289,7 +289,7 @@ export function SavedCartListitem(props) {
                                         <input type="hidden" name="savedcartitemid" id="savedcartitemid" value="83762" />
                                         <input type="hidden" className="PriceId" name="savedcartfilterpriceid" id="savedcartfilterpriceid" value="823" />
                                         <td style={{ textAlign: 'center' }}>
-                                          <Link href="#"
+                                        <Link href="#"
                                             onClick={() => popUpvisible(data.SkuId)}
                                             // onClick={() => deleteItem(data.SkuId)}
                                             className="lnr lnr-trash btn-remove text-danger" style={{ cursor: 'pointer' }} id="savedcartdeleteitem" ></Link>

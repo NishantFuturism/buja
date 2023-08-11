@@ -2,9 +2,10 @@
 import React from 'react';
 import Link from 'next/link';
 //import history from '../../utils/history';
-import { useRouter } from 'next/router';
 // const [change, setChange] = useState('false')
 // const [active, setActive] = useState('false')
+import { useRouter } from 'next/router';
+
 function MyAccountSideNav() {
   const router = useRouter();
 

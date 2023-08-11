@@ -240,7 +240,12 @@ export function Orderdeatails() {
   //   // dispatch(getitems(itemobject))
   // }
   const productdetail = (PageUrl) => {
-    router.push(`/product/${PageUrl}`, { skuUrl: PageUrl })
+    // router.push(`/product/${PageUrl}`, { skuUrl: PageUrl })
+    router.push(
+      {
+        pathname: `/product/${PageUrl}`, // not router.asPath
+        skuUrl: PageUrl,
+      })
     localStorage.setItem('PageUrl', window.btoa(PageUrl))
   }
   const trackpackage = () => {

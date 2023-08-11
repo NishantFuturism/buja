@@ -67,7 +67,7 @@ export function DealdayProductOriginal(props) {
   const dispatch = useDispatch()
   const myDataSelector = (state) => state.dealdayProduct;
   // console.log("delaypage props=", props);
-  console.log("deal shoppingData=", shoppingData, data);
+  //console.log("deal shoppingData=", shoppingData, data);
   // console.log("deal addToCart=", addToCart);
   // console.log('nn', loadProducts);
   const initialWidth = () => {
@@ -101,7 +101,7 @@ export function DealdayProductOriginal(props) {
   useEffect(() => {
     mycartAPI.getShoppingcartDetails()
       .then((res) => {
-        console.log("reorderproductprint11", res);
+        //console.log("reorderproductprint11", res);
         setShppingcart(res)
       })
   }, [cartReducer])
@@ -260,7 +260,7 @@ export function DealdayProductOriginal(props) {
     // console.log("useffect setShppingcart");
     mycartAPI.getShoppingcartDetails()
       .then((res) => {
-        console.log("resdealday=", res);
+        //console.log("resdealday=", res);
         setShppingcart(res)
       })
   }, []);

@@ -66,14 +66,14 @@ export function NewArrivalProduct(props) {
     setTimeout(() => {
       CustomsAPI.newArrivalProduct({})
         .then(response => {
-          console.log("newArrivalProductList", response);
+      
           // setloading(false)
           if (response !== null) {
             setgetDealofday(response.Data)
           }
         })
         .catch(error => {
-          console.log('error:::', error);
+         
         });
     }, 1500);
   }, [props])
@@ -228,7 +228,6 @@ export function NewArrivalProduct(props) {
       // console.log("useffect setShppingcart");
       mycartAPI.getShoppingcartDetails()
         .then((res) => {
-          console.log("resdealday", res);
           setShppingcart(res)
         })
     }
@@ -243,7 +242,7 @@ export function NewArrivalProduct(props) {
     if (FirstCall < 1) {
       // dispatch(nextBtn(pageNum, 9))
     }
-    console.log('nextBtn index', pageNum);
+
     if (count < totalPages) {
       // dispatch(nextBtn(pageNum, 9))
       setCount(count + 1)
@@ -269,7 +268,7 @@ export function NewArrivalProduct(props) {
       {Dealofday !== undefined && Dealofday.length > 0 && (Dealofday.slice(sliceNum, sliceNum + Dealofday.length) || []).map((mapdata, i) => (
         mapdata.FiltersList.length !== 0 ?
           <div className="tab-content" key={sliceNum}>
-            {console.log("mapdata", mapdata)}
+            
             <div className="tab-pane fade show active" id="brand-one" style={{ display: 'block' }} >
               <div className="product-gallary-wrapper">
                 <div className="product-gallary-active owl-carousel owl-arrow-style sale-nav owl-theme owl-loaded">
@@ -293,7 +292,7 @@ export function NewArrivalProduct(props) {
     </Carousel>
   );
   // console.log('deal of the day', sliceNum, Dealofday, pageNum);
-  console.log(" Dealofday", Dealofday);
+  
   return (
     <>
       {Dealofday !== undefined ?

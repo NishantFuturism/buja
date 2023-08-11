@@ -32,7 +32,7 @@ import { useLocalStorage } from '@/useLocalStorage';
 // import addToBasket from '../../images/add-to-basket.png'
 export function AddToCart(props) {
   const router = useRouter();
-  console.log('props.addtocart', props.filtered);
+  //console.log('props.addtocart', props.filtered);
   useInjectReducer({ key: 'addToCart', reducer });
   useInjectSaga({ key: 'addToCart', saga });
   const [CustGUID, setCustGUID] = useLocalStorage('CustGUID',null);
@@ -110,12 +110,12 @@ export function AddToCart(props) {
     if (router.pathname === '/cart') {
       mycartAPI.getCartCommon()
         .then(response => {
-          console.log('uuuuu', response)
+          //console.log('uuuuu', response)
           // setwalletbalance(response.WalletBalance)
           // setamount(response.total)
         })
         .catch(error => {
-          console.log('error:::', error);
+          //console.log('error:::', error);
         });
     }
     // addToCartFunc(qty + 1, props.data.SkuId, filtered.SKUFilterPriceId)
@@ -173,7 +173,7 @@ export function AddToCart(props) {
     // setSkuPriceValue(skuPriceId)
     // const guest=localStorage.getItem('User')
     //   const guestflag=JSON.parse(guest)
-    console.log("guestflag.isguest", skuid, skuPriceId, notifymsg, isNotified, InStock);
+    //console.log("guestflag.isguest", skuid, skuPriceId, notifymsg, isNotified, InStock);
     if (CustGUID === null) {
       router.push('/login')
     }
@@ -266,7 +266,7 @@ export function AddToCart(props) {
   // }, [loadProducts])
   // console.log("props.data.IsNotifiedy",props.data.IsNotifiedy,props.data.SkuId);
   // console.log("filtered.SKUFilterPriceId", props.data, "filtered", filtered, filtered.SKUFilterPriceId, "skulisting", props.skulisting);
-  console.log("condition IsAddedInCart=", props.filtered)
+  //console.log("condition IsAddedInCart=", props.filtered)
   // console.log("filterlistdataaa", props.data.FiltersList[0])
   return (
     <>
@@ -280,8 +280,8 @@ export function AddToCart(props) {
           <div className={props.skulisting ? "correction mt-10" : "correction"}>
             <span style={{ width: '37px', padding: '0px 2px 0px 2px' }}>
               <i className="lnr lnr-cart" id="addtocartimg"></i>
-              {/* <img src={addToBasket} alt='add to cart' className='addtocartimg' /> */}
-              {console.log('filtered--', filtered)}
+          
+            
             </span>
             <span id='qtyspan' className="qtyincdec addtocartqtyDivhidden addtocartqtyDiv2706 mb-15 d-none">
               <input type="text" onChange={(e) => QtyCoutFun(e)} className="validateQty addtocartqtytxt addtocartqty84562 addtocartqty2706" id="qty2706" defaultValue={QtyCout} maxLength="2" required="" />

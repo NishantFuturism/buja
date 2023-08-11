@@ -541,6 +541,7 @@ export function Orderdeatails() {
                                             <a href onClick={() => productdetail(dataitem.SkuLink)} style={{ cursor: 'pointer' }}>
                                               {/* <img src={dataitem.ListingImage} data-width="150" data-height="150" width="150" height="150" className="img-responsive js-lazy-img" alt="Cucumber Green/Kheera Hara/Kakdi Hari" title="" /> */}
                                               <Image src={dataitem.ListingImage} width="150" height="150" alt="Cucumber Green/Kheera Hara/Kakdi Hari" />
+
                                             </a>
                                           </td>
                                           <td className="textalignleft orderProductname" onClick={() => productdetail(dataitem.SkuLink)}>

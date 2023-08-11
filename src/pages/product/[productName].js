@@ -52,18 +52,15 @@ const Product = ({ productData }) => {
   const [PageUrl, setPageUrl] = useLocalStorage('PageUrl',null);
   const [ProductName, setProductName] = useLocalStorage('ProductName',null);
   const [SkuDetailId, setSkuDetailId] = useLocalStorage('SkuDetailId',null);
-  const [CustGUID, setCustGUID] = useLocalStorage('CustGUID',null);
+  const [CustGUID, setCustGUID] = useState('');
   const [generatedtoken, setgeneratedtoken] = useLocalStorage('generatedtoken',null);
-
-
-  
   const [prductdetaildata, setprductdetaildata] = useState(productData || {});
   const router = useRouter();
   const [reviewres, setReviewres] = useState([])
   const [limit, setLimit] = useState(5)
   const max = 50;
   const skuproduct = useSelector(state => state.product)
-
+  console.log('--------------------------productdata',prductdetaildata)
   /*useEffect(() => {
     console.log("HeyRohit",productData)
     if (productData !== undefined) {
@@ -87,6 +84,12 @@ const Product = ({ productData }) => {
     dispatch(getskuProductdetail(productName))
     dispatch(getreviw(window.atob(PageUrl)))
   }
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      setCustGUID(localStorage.getItem('CustGUID'))
+    }
+  },[])
 
   useEffect(() => {
     //console.log('executing this',prductdetaildata.SkuId)

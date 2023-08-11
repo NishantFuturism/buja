@@ -4,6 +4,8 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 ////import history from '../../utils/history';
 import AddToCart from '../AddToCart';
 // import OrderdetailAPI from '../MainPage/api/orderdetail';
@@ -20,6 +22,8 @@ export default function Loadreorder(props) {
   // console.log("showReorder..", showReorder)
   // const [reOrderlist, setReOrderlist] = useState([]);
   const addtocartreducer = useSelector(state => state.addToCart)
+  const router = useRouter();
+
   const changeFltr = (newFL) => {
     console.log("newFL", newFL)
     setSeleced(newFL);
@@ -39,7 +43,12 @@ export default function Loadreorder(props) {
   }, [])
   console.log('sssss', filtered, Seleced);
   const productdetail = (PageUrl) => {
-    history.push(`/product/${PageUrl}`, { skuUrl: PageUrl })
+    // history.push(`/product/${PageUrl}`, { skuUrl: PageUrl })
+    router.push(
+      {
+        pathname: `/product/${PageUrl}`, // not router.asPath
+        skuUrl: PageUrl,
+      })
     localStorage.setItem('PageUrl', window.btoa(PageUrl))
   }
   useEffect(() => {
@@ -79,16 +88,15 @@ export default function Loadreorder(props) {
       {/* {(reOrderlist || []).map(data => */}
       <tr className="pr-block">
         <td>
+          {/* <Link onClick={() => productdetail(props.data.PageUrl)} >
+            <img src={props.data.ListingImage} height="50" width="50" className="js-lazy-img" />
+          </Link> */}
           <Link href={"#"} onClick={() => productdetail(props.data.PageUrl)} >
-            {/* <img src={props.data.ListingImage} height="50" width="50" className="js-lazy-img" /> */}
-            {console.log("SDGGGGWERERR",props.data.ListingImage)}
             <Image src={props.data.ListingImage} width="50" height="50"  />
-
-
           </Link>
         </td>
         <td className="text-left reordertext" id='reoderproductname'>
-          <p><strong><Link href={"#"}  onClick={() => productdetail(props.data.PageUrl)}> {props.data.SkuCode}</Link> </strong></p>
+          <p><strong><Link href={"#"} onClick={() => productdetail(props.data.PageUrl)}> {props.data.SkuCode}</Link> </strong></p>
         </td>
         <td style={{ textAlign: 'left' }}>
           {dateConverter(props.data.CreatedOn)}

@@ -51,7 +51,7 @@ import LocationApi from "../MainPage/api/Locationapi";
 import CustomsAPI from "../MainPage/api/homeServices";
 import Success from '../../components/ShowAlert/success';
 import Menudropdown from "./Menudropdown"
-import cycling from '../../../public/images/cycling.gif'
+//import cycling from '../../../public/images/cycling.gif'
 // import Header from '../../components/Header';
 export function MavigationBar(props) {
   const router = useRouter();
@@ -102,7 +102,7 @@ export function MavigationBar(props) {
   // const [showSideDrawer, setshowSideDrawer] = useState(false);
   const ref = useRef()
   // const dataReducer = useSelector(state => state)
-  console.log("CartData", CartData);
+  
   // console.log("mavigationloadProducts", loadProducts);
   const dispatch = useDispatch()
   // console.log("props.menu", props);
@@ -132,7 +132,7 @@ export function MavigationBar(props) {
   useEffect(() => {
     // setenblesuggestion(false)
     if (mavigationBarReducer !== undefined) {
-      console.log(`rohit search--${JSON.stringify(mavigationBarReducer.dblist.length)}`);
+      
       setserchlist(mavigationBarReducer.dblist)
       if (mavigationBarReducer.dblist && mavigationBarReducer.dblist.length > 0) {
         // setenblesuggestion(true)
@@ -209,7 +209,7 @@ export function MavigationBar(props) {
     }
   } */
   const handleSearchKeyUp = () => {
-    console.log(`search keyword${document.getElementById('search').value}`);
+    
     // const strRegex = new RegExp(/^[a-z0-9]+$/i);
     // let result = strRegex.test(document.getElementById('search').value); 
     if (document.getElementById('search').value && document.getElementById('search').value !== "") {
@@ -257,8 +257,7 @@ export function MavigationBar(props) {
   }
   const serchproduct = (e) => {
     e.preventDefault();
-    console.log("chktext", document.getElementById('search').value)
-    console.log("search function called");
+    
     if (document.getElementById('search').value === '') {
       // toast('Please enter search text')
       setSuccessStatus(true)
@@ -274,8 +273,7 @@ export function MavigationBar(props) {
   /** **** mobile search **** */
   const serchproductmobile = (e) => {
     e.preventDefault();
-    console.log("chktextmob", document.getElementById('searchmob').value)
-    console.log("search function called");
+    
     if (document.getElementById('searchmob').value === '') {
       // toast('Please enter search text')
       setSuccessStatus(true)
@@ -289,7 +287,7 @@ export function MavigationBar(props) {
     }
   }
   const handleSearchKeyUpmob = () => {
-    console.log(`search keyword${document.getElementById('searchmob').value}`);
+    
     // const strRegex = new RegExp(/^[a-z0-9]+$/i);
     // let result = strRegex.test(document.getElementById('search').value); 
     if (document.getElementById('searchmob').value && document.getElementById('searchmob').value !== "") {
@@ -646,7 +644,7 @@ export function MavigationBar(props) {
                 <ul>
                   <li className='settings'>
                     <noscript></noscript>
-                    <a className="ha-toggle myaccounthelip" href title="My Account" onClick={handledropdownclass}>
+                    <a className="ha-toggle myaccounthelip" title="My Account" onClick={handledropdownclass}>
                       <span className="lnr lnr-user cursor-pointer"></span>&nbsp;
                       <div className='menu-txt cursor-pointer' id='accountNameId'>
                         {AccountName}
@@ -720,7 +718,7 @@ export function MavigationBar(props) {
                         <li className='cursor-pointer'>
                           <a onClick={logoutPopUp}
                             // renderLogout
-                            href>
+                            >
                             <span className="lnr lnr-exit" aria-hidden="true"></span>&nbsp;Logout
                           </a>
                         </li>
@@ -749,13 +747,13 @@ export function MavigationBar(props) {
                     </Link>
                   </li>
                   <li className="wishlist" style={{ cursor: 'pointer' }}>
-                    <a className="ha-toggle" href onClick={loadwishlist}>
+                    <a className="ha-toggle" onClick={loadwishlist}>
                       <span className='lnr lnr-heart' ></span>
                       {/* <FontAwesomeIcon icon={faHeart} /> */}
                       <span className={props.wishlistdata > 0 ? 'count' : 'nocount'}>
                         {props && props.wishlistdata !== undefined && props.wishlistdata > 0 ? wishlistdata : ''}
                         {/* {localStorage.getItem('length') !== undefined ? localStorage.getItem('length') : wishcount } */}
-                        {console.log("props..", props)}
+                        
                       </span>
                       {/* :<span className="count" id="wishlistcount">
                            0
@@ -772,7 +770,7 @@ export function MavigationBar(props) {
                   // onClick={() => dispatch(isOpenMyCartAction(true))}
                   // open={showSideDrawer} 
                   >
-                    <a className="ha-toggle" href onClick={() => dispatch(isOpenMyCartAction(true))} >
+                    <a className="ha-toggle" onClick={() => dispatch(isOpenMyCartAction(true))} >
                       <span className="lnr lnr-cart"></span>
                       <span className={CartData.count > 0 ? 'count' : 'nocount'}>
                         {CartData && CartData.count !== undefined && CartData.count > 0 ? CartData.count : ''}
@@ -799,7 +797,7 @@ export function MavigationBar(props) {
                   <button type="button" className="close" data-dismiss="modal" onClick={logoutPopUp}>×</button>
                   <div>
                     <ul>
-                      <li><img src={cycling} alt='' style={{ width: '100px' }} /></li>
+                      <li><img src='/images/cycling.gif' alt='' style={{ width: '100px' }} /></li>
                       <li><p>Are you sure you want to logout?</p></li>
                       <li>
                         <button className="btn btn-secondary" type="button" onClick={renderLogout}>Yes</button>
@@ -821,7 +819,7 @@ export function MavigationBar(props) {
               <div className="top-main-menu" id="main-menu">
                 <div className="main-menu">
                   <div className="mean-push"></div>
-                  {console.log("submenu==", sub)}
+                  
                   <nav id="mobile-menu" style={{ display: 'block' }}>
                     <ul >
                       {sub.map(itm => (
@@ -899,9 +897,6 @@ export function MavigationBar(props) {
           </div >
         </div >
       </div >
-      {
-        console.log('searchenable---', searchenable)
-      }
       {
         searchenable === true ?
           <div className="search-block order-sm-last searchboxlayout position-relative">

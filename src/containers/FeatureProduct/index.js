@@ -63,20 +63,22 @@ export function FeatureProduct(props) {
   }
   useEffect(() => {
     // dispatch(listreorder())
-    setTimeout(() => {
-      CustomsAPI.featureProduct({})
-        .then(response => {
-          console.log("featureProductList", response);
-          // setloading(false)
-          if (response !== null) {
-            setgetDealofday(response.Data)
-          }
-        })
-        .catch(error => {
-          console.log('error:::', error);
-        });
-    }, 1500);
-  }, [props])
+    //if (typeof window !== 'undefined' && window.localStorage && localStorage.getItem('ProductName')) {
+      setTimeout(() => {
+        CustomsAPI.featureProduct({})
+          .then(response => {
+            //console.log("featureProductList", response);
+            // setloading(false)
+            if (response !== null) {
+              setgetDealofday(response.Data)
+            }
+          })
+          .catch(error => {
+            //console.log('error:::', error);
+          });
+      }, 1500);
+    //}
+  }, [])
   // useEffect(() => {
   //   if (nextData !== undefined && nextData.dealData !== undefined) {
   //     if (nextData && nextData.dealData.length > 0) {
@@ -228,7 +230,7 @@ export function FeatureProduct(props) {
       // console.log("useffect setShppingcart");
       mycartAPI.getShoppingcartDetails()
         .then((res) => {
-          console.log("resdealday=", res);
+          //console.log("resdealday=", res);
           setShppingcart(res)
         })
     }
@@ -243,7 +245,7 @@ export function FeatureProduct(props) {
     if (FirstCall < 1) {
       // dispatch(nextBtn(pageNum, 9))
     }
-    console.log('nextBtn index', pageNum);
+    //console.log('nextBtn index', pageNum);
     if (count < totalPages) {
       // dispatch(nextBtn(pageNum, 9))
       setCount(count + 1)
@@ -269,7 +271,6 @@ export function FeatureProduct(props) {
       {Dealofday !== undefined && Dealofday.length > 0 && (Dealofday.slice(sliceNum, sliceNum + Dealofday.length) || []).map((mapdata, i) => (
         mapdata.FiltersList.length !== 0 ?
           <div className="tab-content" key={sliceNum}>
-            {console.log("mapdata", mapdata)}
             <div className="tab-pane fade show active" id="brand-one" style={{ display: 'block' }} >
               <div className="product-gallary-wrapper">
                 <div className="product-gallary-active owl-carousel owl-arrow-style sale-nav owl-theme owl-loaded">
@@ -292,8 +293,7 @@ export function FeatureProduct(props) {
       ))}
     </Carousel>
   );
-  // console.log('deal of the day', sliceNum, Dealofday, pageNum);
-  console.log(" Dealofday", Dealofday);
+
   return (
     <>
       {Dealofday !== undefined ?
